@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+actor Cajero
+actor Administrador
+
+rectangle "Sistema POS e Inventario - La Esquina" {
+  usecase "Registrar venta" as UC1
+  usecase "Gestionar productos" as UC2
+  usecase "Realizar corte de caja" as UC3
+  usecase "Gestionar fiados" as UC4
+  usecase "Gestionar usuarios" as UC5
+  usecase "Emitir tiquete de venta" as UC6
+}
+
+Cajero --> UC1
+Cajero --> UC6
+Cajero --> UC4
+
+Administrador --> UC2
+Administrador --> UC3
+Administrador --> UC5
+Administrador --> UC4
+
+UC1 ..> UC6 : <<include>>
+@enduml
