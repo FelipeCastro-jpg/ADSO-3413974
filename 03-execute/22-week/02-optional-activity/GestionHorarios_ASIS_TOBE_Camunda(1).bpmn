@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  id="Definitions_GestionHorarios"
+  targetNamespace="http://sena.edu.co/gestion-horarios">
+
+  <!-- AS-IS: flujo actual/problemático -->
+  <bpmn:process id="Process_ASIS" name="AS-IS - Gestión de Horarios" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_ASIS">
+      <bpmn:lane id="Lane_ASIS_Coordinador" name="Coordinador Académico">
+        <bpmn:flowNodeRef>ASIS_Start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ASIS_CrearFicha</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ASIS_AsignarInstructor</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ASIS_RevisarConflicto</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_ASIS_Instructor" name="Instructor">
+        <bpmn:flowNodeRef>ASIS_RecibirHorario</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ASIS_ReportarConflicto</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_ASIS_Sistema" name="Sistema de Gestión de Horarios">
+        <bpmn:flowNodeRef>ASIS_Publicar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ASIS_Notificar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ASIS_End</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="ASIS_Start" name="Iniciar gestión de horario"/>
+    <bpmn:userTask id="ASIS_CrearFicha" name="Crear ficha / registrar necesidad"/>
+    <bpmn:userTask id="ASIS_AsignarInstructor" name="Asignar instructor"/>
+    <bpmn:userTask id="ASIS_RevisarConflicto" name="Revisar posible cruce"/>
+    <bpmn:userTask id="ASIS_RecibirHorario" name="Recibir horario"/>
+    <bpmn:userTask id="ASIS_ReportarConflicto" name="Reportar conflicto"/>
+    <bpmn:serviceTask id="ASIS_Publicar" name="Publicar horario"/>
+    <bpmn:serviceTask id="ASIS_Notificar" name="Notificar horario"/>
+    <bpmn:endEvent id="ASIS_End" name="Proceso finalizado"/>
+
+    <bpmn:sequenceFlow id="ASIS_F1" sourceRef="ASIS_Start" targetRef="ASIS_CrearFicha"/>
+    <bpmn:sequenceFlow id="ASIS_F2" sourceRef="ASIS_CrearFicha" targetRef="ASIS_AsignarInstructor"/>
+    <bpmn:sequenceFlow id="ASIS_F3" sourceRef="ASIS_AsignarInstructor" targetRef="ASIS_RevisarConflicto"/>
+    <bpmn:sequenceFlow id="ASIS_F4" sourceRef="ASIS_RevisarConflicto" targetRef="ASIS_Publicar"/>
+    <bpmn:sequenceFlow id="ASIS_F5" sourceRef="ASIS_Publicar" targetRef="ASIS_Notificar"/>
+    <bpmn:sequenceFlow id="ASIS_F6" sourceRef="ASIS_Notificar" targetRef="ASIS_RecibirHorario"/>
+    <bpmn:sequenceFlow id="ASIS_F7" sourceRef="ASIS_RecibirHorario" targetRef="ASIS_ReportarConflicto"/>
+    <bpmn:sequenceFlow id="ASIS_F8" sourceRef="ASIS_ReportarConflicto" targetRef="ASIS_End"/>
+  </bpmn:process>
+
+  <!-- TO-BE: flujo optimizado -->
+  <bpmn:process id="Process_TOBE" name="TO-BE - Gestión Optimizada de Horarios" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_TOBE">
+      <bpmn:lane id="Lane_TOBE_Coordinador" name="Coordinador Académico">
+        <bpmn:flowNodeRef>TOBE_Start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_CrearFicha</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_SolicitarAsignacion</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_Reasignar</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_TOBE_Sistema" name="Sistema de Gestión de Horarios">
+        <bpmn:flowNodeRef>TOBE_ValidarRAP</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_ValidarDisponibilidad</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_GatewayDisponibilidad</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_GatewayRAP</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_ActualizarRAP</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_Publicar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_NotificarInstructor</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_GatewayReasignacion</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TOBE_End</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_TOBE_Instructor" name="Instructor">
+        <bpmn:flowNodeRef>TOBE_Confirmar</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="TOBE_Start" name="Iniciar gestión de horario"/>
+    <bpmn:userTask id="TOBE_CrearFicha" name="Crear / Registrar ficha"/>
+    <bpmn:userTask id="TOBE_SolicitarAsignacion" name="Solicitar asignación de instructor"/>
+    <bpmn:serviceTask id="TOBE_ValidarRAP" name="Validar RAP"/>
+    <bpmn:exclusiveGateway id="TOBE_GatewayRAP" name="¿RAP válido?"/>
+    <bpmn:serviceTask id="TOBE_ValidarDisponibilidad" name="Validar disponibilidad del instructor"/>
+    <bpmn:exclusiveGateway id="TOBE_GatewayDisponibilidad" name="¿Hay cruce de horario?"/>
+    <bpmn:userTask id="TOBE_Reasignar" name="Reasignar horario / instructor"/>
+    <bpmn:serviceTask id="TOBE_ActualizarRAP" name="Actualizar seguimiento del RAP"/>
+    <bpmn:serviceTask id="TOBE_Publicar" name="Publicar horario"/>
+    <bpmn:serviceTask id="TOBE_NotificarInstructor" name="Notificar al instructor"/>
+    <bpmn:userTask id="TOBE_Confirmar" name="Confirmar horario"/>
+    <bpmn:exclusiveGateway id="TOBE_GatewayReasignacion" name="¿Requiere reasignación?"/>
+    <bpmn:endEvent id="TOBE_End" name="Proceso finalizado"/>
+
+    <bpmn:sequenceFlow id="TOBE_F1" sourceRef="TOBE_Start" targetRef="TOBE_CrearFicha"/>
+    <bpmn:sequenceFlow id="TOBE_F2" sourceRef="TOBE_CrearFicha" targetRef="TOBE_SolicitarAsignacion"/>
+    <bpmn:sequenceFlow id="TOBE_F3" sourceRef="TOBE_SolicitarAsignacion" targetRef="TOBE_ValidarRAP"/>
+    <bpmn:sequenceFlow id="TOBE_F4" sourceRef="TOBE_ValidarRAP" targetRef="TOBE_GatewayRAP"/>
+    <bpmn:sequenceFlow id="TOBE_RAPNo" name="No" sourceRef="TOBE_GatewayRAP" targetRef="TOBE_CrearFicha"/>
+    <bpmn:sequenceFlow id="TOBE_RAPSi" name="Sí" sourceRef="TOBE_GatewayRAP" targetRef="TOBE_ValidarDisponibilidad"/>
+    <bpmn:sequenceFlow id="TOBE_F5" sourceRef="TOBE_ValidarDisponibilidad" targetRef="TOBE_GatewayDisponibilidad"/>
+    <bpmn:sequenceFlow id="TOBE_CruceSi" name="Sí" sourceRef="TOBE_GatewayDisponibilidad" targetRef="TOBE_Reasignar"/>
+    <bpmn:sequenceFlow id="TOBE_CruceNo" name="No" sourceRef="TOBE_GatewayDisponibilidad" targetRef="TOBE_ActualizarRAP"/>
+    <bpmn:sequenceFlow id="TOBE_F6" sourceRef="TOBE_Reasignar" targetRef="TOBE_ValidarDisponibilidad"/>
+    <bpmn:sequenceFlow id="TOBE_F7" sourceRef="TOBE_ActualizarRAP" targetRef="TOBE_Publicar"/>
+    <bpmn:sequenceFlow id="TOBE_F8" sourceRef="TOBE_Publicar" targetRef="TOBE_NotificarInstructor"/>
+    <bpmn:sequenceFlow id="TOBE_F9" sourceRef="TOBE_NotificarInstructor" targetRef="TOBE_Confirmar"/>
+    <bpmn:sequenceFlow id="TOBE_F10" sourceRef="TOBE_Confirmar" targetRef="TOBE_GatewayReasignacion"/>
+    <bpmn:sequenceFlow id="TOBE_ReasignarConfirmacion" name="Sí" sourceRef="TOBE_GatewayReasignacion" targetRef="TOBE_Reasignar"/>
+    <bpmn:sequenceFlow id="TOBE_Confirmado" name="No" sourceRef="TOBE_GatewayReasignacion" targetRef="TOBE_End"/>
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="Diagram_ASIS">
+    <bpmndi:BPMNPlane id="Plane_ASIS" bpmnElement="Process_ASIS">
+      <bpmndi:BPMNShape id="ASIS_S1" bpmnElement="ASIS_Start"><dc:Bounds x="100" y="160" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ASIS_S2" bpmnElement="ASIS_CrearFicha"><dc:Bounds x="180" y="138" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ASIS_S3" bpmnElement="ASIS_AsignarInstructor"><dc:Bounds x="350" y="138" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ASIS_S4" bpmnElement="ASIS_RevisarConflicto"><dc:Bounds x="530" y="138" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ASIS_S5" bpmnElement="ASIS_Publicar"><dc:Bounds x="710" y="138" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ASIS_S6" bpmnElement="ASIS_Notificar"><dc:Bounds x="880" y="138" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ASIS_S7" bpmnElement="ASIS_RecibirHorario"><dc:Bounds x="1050" y="138" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ASIS_S8" bpmnElement="ASIS_ReportarConflicto"><dc:Bounds x="1220" y="138" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ASIS_S9" bpmnElement="ASIS_End"><dc:Bounds x="1400" y="160" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="ASIS_E1" bpmnElement="ASIS_F1"><di:waypoint x="136" y="178"/><di:waypoint x="180" y="178"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ASIS_E2" bpmnElement="ASIS_F2"><di:waypoint x="310" y="178"/><di:waypoint x="350" y="178"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ASIS_E3" bpmnElement="ASIS_F3"><di:waypoint x="490" y="178"/><di:waypoint x="530" y="178"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ASIS_E4" bpmnElement="ASIS_F4"><di:waypoint x="670" y="178"/><di:waypoint x="710" y="178"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ASIS_E5" bpmnElement="ASIS_F5"><di:waypoint x="840" y="178"/><di:waypoint x="880" y="178"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ASIS_E6" bpmnElement="ASIS_F6"><di:waypoint x="1010" y="178"/><di:waypoint x="1050" y="178"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ASIS_E7" bpmnElement="ASIS_F7"><di:waypoint x="1180" y="178"/><di:waypoint x="1220" y="178"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ASIS_E8" bpmnElement="ASIS_F8"><di:waypoint x="1360" y="178"/><di:waypoint x="1400" y="178"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+  <bpmndi:BPMNDiagram id="Diagram_TOBE">
+    <bpmndi:BPMNPlane id="Plane_TOBE" bpmnElement="Process_TOBE">
+      <bpmndi:BPMNShape id="T1" bpmnElement="TOBE_Start"><dc:Bounds x="80" y="180" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T2" bpmnElement="TOBE_CrearFicha"><dc:Bounds x="150" y="158" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T3" bpmnElement="TOBE_SolicitarAsignacion"><dc:Bounds x="315" y="158" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T4" bpmnElement="TOBE_ValidarRAP"><dc:Bounds x="500" y="158" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T5" bpmnElement="TOBE_GatewayRAP" isMarkerVisible="true"><dc:Bounds x="665" y="173" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T6" bpmnElement="TOBE_ValidarDisponibilidad"><dc:Bounds x="750" y="158" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T7" bpmnElement="TOBE_GatewayDisponibilidad" isMarkerVisible="true"><dc:Bounds x="935" y="173" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T8" bpmnElement="TOBE_Reasignar"><dc:Bounds x="900" y="300" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T9" bpmnElement="TOBE_ActualizarRAP"><dc:Bounds x="1030" y="158" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T10" bpmnElement="TOBE_Publicar"><dc:Bounds x="1210" y="158" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T11" bpmnElement="TOBE_NotificarInstructor"><dc:Bounds x="1370" y="158" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T12" bpmnElement="TOBE_Confirmar"><dc:Bounds x="1550" y="158" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T13" bpmnElement="TOBE_GatewayReasignacion" isMarkerVisible="true"><dc:Bounds x="1715" y="173" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T14" bpmnElement="TOBE_End"><dc:Bounds x="1810" y="180" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="TE1" bpmnElement="TOBE_F1"><di:waypoint x="116" y="198"/><di:waypoint x="150" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE2" bpmnElement="TOBE_F2"><di:waypoint x="280" y="198"/><di:waypoint x="315" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE3" bpmnElement="TOBE_F3"><di:waypoint x="465" y="198"/><di:waypoint x="500" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE4" bpmnElement="TOBE_F4"><di:waypoint x="630" y="198"/><di:waypoint x="665" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TERAPNo" bpmnElement="TOBE_RAPNo"><di:waypoint x="690" y="223"/><di:waypoint x="690" y="270"/><di:waypoint x="215" y="270"/><di:waypoint x="215" y="238"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TERAPSi" bpmnElement="TOBE_RAPSi"><di:waypoint x="715" y="198"/><di:waypoint x="750" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE5" bpmnElement="TOBE_F5"><di:waypoint x="900" y="198"/><di:waypoint x="935" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TECruceSi" bpmnElement="TOBE_CruceSi"><di:waypoint x="960" y="223"/><di:waypoint x="960" y="300"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TECruceNo" bpmnElement="TOBE_CruceNo"><di:waypoint x="985" y="198"/><di:waypoint x="1030" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE6" bpmnElement="TOBE_F6"><di:waypoint x="900" y="340"/><di:waypoint x="825" y="340"/><di:waypoint x="825" y="238"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE7" bpmnElement="TOBE_F7"><di:waypoint x="1180" y="198"/><di:waypoint x="1210" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE8" bpmnElement="TOBE_F8"><di:waypoint x="1340" y="198"/><di:waypoint x="1370" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE9" bpmnElement="TOBE_F9"><di:waypoint x="1520" y="198"/><di:waypoint x="1550" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TE10" bpmnElement="TOBE_F10"><di:waypoint x="1680" y="198"/><di:waypoint x="1715" y="198"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TEReasig" bpmnElement="TOBE_ReasignarConfirmacion"><di:waypoint x="1740" y="223"/><di:waypoint x="1740" y="430"/><di:waypoint x="975" y="430"/><di:waypoint x="975" y="380"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="TEFin" bpmnElement="TOBE_Confirmado"><di:waypoint x="1765" y="198"/><di:waypoint x="1810" y="198"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
