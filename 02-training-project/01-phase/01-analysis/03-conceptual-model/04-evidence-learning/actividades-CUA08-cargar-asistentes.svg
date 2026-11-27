@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="1220" viewBox="0 0 1220 1220" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#000"/></marker>
+<marker id="tri" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 Z" fill="#fff" stroke="#000" stroke-width="1.4"/></marker>
+<marker id="opn" markerWidth="14" markerHeight="14" refX="12" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12" fill="none" stroke="#000" stroke-width="1.4"/></marker>
+<marker id="dia" markerWidth="24" markerHeight="14" refX="1" refY="7" orient="auto"><path d="M1,7 L11,1 L22,7 L11,13 Z" fill="#000" stroke="#000"/></marker>
+<marker id="diaO" markerWidth="24" markerHeight="14" refX="1" refY="7" orient="auto"><path d="M1,7 L11,1 L22,7 L11,13 Z" fill="#fff" stroke="#000" stroke-width="1.3"/></marker></defs>
+<rect width="1220" height="1220" fill="#fff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#1f3b57">Diagrama de actividades · CU-A08 Cargar asistentes desde archivo</text>
+<rect x="20" y="50" width="320" height="1130" fill="#fafcff" stroke="#1f3b57" stroke-width="1.5"/><rect x="20" y="50" width="320" height="36" fill="#dbe7f3" stroke="#1f3b57" stroke-width="1.5"/>
+<text x="180.0" y="74" font-size="15" text-anchor="middle" fill="#000" font-weight="bold">Organizador</text>
+<rect x="340" y="50" width="580" height="1130" fill="#fafcff" stroke="#1f3b57" stroke-width="1.5"/><rect x="340" y="50" width="580" height="36" fill="#dbe7f3" stroke="#1f3b57" stroke-width="1.5"/>
+<text x="630.0" y="74" font-size="15" text-anchor="middle" fill="#000" font-weight="bold">Sistema SIGEV</text>
+<rect x="920" y="50" width="280" height="1130" fill="#fafcff" stroke="#1f3b57" stroke-width="1.5"/><rect x="920" y="50" width="280" height="36" fill="#dbe7f3" stroke="#1f3b57" stroke-width="1.5"/>
+<text x="1060.0" y="74" font-size="15" text-anchor="middle" fill="#000" font-weight="bold">Servicio de mensajería</text>
+<circle cx="180" cy="115" r="13" fill="#000"/>
+<rect x="70.0" y="153.0" width="220" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="180" y="177" font-size="13" text-anchor="middle" fill="#000">Seleccionar evento y</text>
+<text x="180" y="193" font-size="13" text-anchor="middle" fill="#000">adjuntar archivo CSV</text>
+<rect x="430.0" y="153.0" width="220" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="540" y="177" font-size="13" text-anchor="middle" fill="#000">Validar estructura del</text>
+<text x="540" y="193" font-size="13" text-anchor="middle" fill="#000">archivo (CU-A09)</text>
+<polygon points="540,244 566,270 540,296 514,270" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<rect x="690.0" y="243.0" width="200" height="54" rx="14" fill="#fdecea" stroke="#000" stroke-width="1.4"/>
+<text x="790" y="267" font-size="13" text-anchor="middle" fill="#000">Rechazar archivo e indicar</text>
+<text x="790" y="283" font-size="13" text-anchor="middle" fill="#000">columnas faltantes</text>
+<circle cx="790" cy="350" r="15" fill="#fff" stroke="#000" stroke-width="2"/><circle cx="790" cy="350" r="9" fill="#000"/>
+<text x="812" y="355" font-size="11" text-anchor="start" fill="#444" font-style="italic">Sin carga</text>
+<rect x="420.0" y="333.0" width="240" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="540" y="357" font-size="13" text-anchor="middle" fill="#000">Revisar cada fila (documento,</text>
+<text x="540" y="373" font-size="13" text-anchor="middle" fill="#000">correo, tipo de entrada)</text>
+<polygon points="540,424 566,450 540,476 514,450" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<rect x="690.0" y="423.0" width="200" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="790" y="447" font-size="13" text-anchor="middle" fill="#000">Mostrar resumen de</text>
+<text x="790" y="463" font-size="13" text-anchor="middle" fill="#000">filas con error</text>
+<rect x="70.0" y="513.0" width="220" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="180" y="537" font-size="13" text-anchor="middle" fill="#000">Decidir: corregir archivo</text>
+<text x="180" y="553" font-size="13" text-anchor="middle" fill="#000">o cargar solo las válidas</text>
+<polygon points="180,604 206,630 180,656 154,630" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<polygon points="540,604 566,630 540,656 514,630" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<rect x="425.0" y="693.0" width="230" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="540" y="717" font-size="13" text-anchor="middle" fill="#000">Verificar cupo de los</text>
+<text x="540" y="733" font-size="13" text-anchor="middle" fill="#000">tipos de entrada</text>
+<polygon points="540,774 566,800 540,826 514,800" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<rect x="685.0" y="773.0" width="210" height="54" rx="14" fill="#fdecea" stroke="#000" stroke-width="1.4"/>
+<text x="790" y="797" font-size="13" text-anchor="middle" fill="#000">Informar cupo insuficiente</text>
+<text x="790" y="813" font-size="13" text-anchor="middle" fill="#000">y cuántas filas sobran</text>
+<circle cx="790" cy="880" r="15" fill="#fff" stroke="#000" stroke-width="2"/><circle cx="790" cy="880" r="9" fill="#000"/>
+<text x="812" y="885" font-size="11" text-anchor="start" fill="#444" font-style="italic">Sin carga</text>
+<rect x="425.0" y="863.0" width="230" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="540" y="887" font-size="13" text-anchor="middle" fill="#000">Crear cuentas y</text>
+<text x="540" y="903" font-size="13" text-anchor="middle" fill="#000">entradas de la carga</text>
+<rect x="380.0" y="956" width="700" height="8" fill="#000"/>
+<rect x="425.0" y="993.0" width="230" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="540" y="1017" font-size="13" text-anchor="middle" fill="#000">Registrar la carga</text>
+<text x="540" y="1033" font-size="13" text-anchor="middle" fill="#000">en la bitácora</text>
+<rect x="955.0" y="993.0" width="210" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="1060" y="1017" font-size="13" text-anchor="middle" fill="#000">Enviar entrada a</text>
+<text x="1060" y="1033" font-size="13" text-anchor="middle" fill="#000">cada asistente</text>
+<rect x="380.0" y="1076" width="700" height="8" fill="#000"/>
+<rect x="70.0" y="1053.0" width="220" height="54" rx="14" fill="#ffffff" stroke="#000" stroke-width="1.4"/>
+<text x="180" y="1077" font-size="13" text-anchor="middle" fill="#000">Ver resultado:</text>
+<text x="180" y="1093" font-size="13" text-anchor="middle" fill="#000">filas cargadas y rechazadas</text>
+<circle cx="180" cy="1150" r="15" fill="#fff" stroke="#000" stroke-width="2"/><circle cx="180" cy="1150" r="9" fill="#000"/>
+<polyline points="180.0,128.0 180.0,153.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="290.0,180.0 430.0,180.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="540.0,207.0 540.0,244.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="566.0,270.0 690.0,270.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="620" y="261" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">[inválida]</text>
+<polyline points="790.0,297.0 790.0,335.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="540.0,296.0 540.0,333.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="470" y="320" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">[estructura válida]</text>
+<polyline points="540.0,387.0 540.0,424.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="566.0,450.0 690.0,450.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="625" y="441" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">[filas con error]</text>
+<polyline points="514.0,450.0 400.0,450.0 400.0,630.0 514.0,630.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="445" y="470" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">[todas válidas]</text>
+<polyline points="790.0,477.0 790.0,505.0 180.0,505.0 180.0,513.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="180.0,567.0 180.0,604.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="154.0,630.0 45.0,630.0 45.0,180.0 70.0,180.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="110" y="620" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">[corregir archivo]</text>
+<polyline points="206.0,630.0 514.0,630.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="330" y="621" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">[cargar solo válidas]</text>
+<polyline points="540.0,656.0 540.0,693.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="540.0,747.0 540.0,774.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="566.0,800.0 685.0,800.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="620" y="791" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">[insuficiente]</text>
+<polyline points="790.0,827.0 790.0,865.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="540.0,826.0 540.0,863.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="475" y="850" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">[cupo suficiente]</text>
+<polyline points="540.0,917.0 540.0,956.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="540.0,964.0 540.0,993.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="1060.0,964.0 1060.0,993.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="540.0,1047.0 540.0,1076.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="1060.0,1047.0 1060.0,1076.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="400.0,1080.0 290.0,1080.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="180.0,1107.0 180.0,1135.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="20" y="1208" font-size="11.5" fill="#555">UML 2.5 · bifurcación/unión: registro en bitácora y envío de entradas ocurren en paralelo · toda rama aparece en PL-CUA08</text>
+</svg>

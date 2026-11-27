@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1080" viewBox="0 0 1240 1080" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#000"/></marker>
+<marker id="tri" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 Z" fill="#fff" stroke="#000" stroke-width="1.4"/></marker>
+<marker id="opn" markerWidth="14" markerHeight="14" refX="12" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12" fill="none" stroke="#000" stroke-width="1.4"/></marker>
+<marker id="dia" markerWidth="24" markerHeight="14" refX="1" refY="7" orient="auto"><path d="M1,7 L11,1 L22,7 L11,13 Z" fill="#000" stroke="#000"/></marker>
+<marker id="diaO" markerWidth="24" markerHeight="14" refX="1" refY="7" orient="auto"><path d="M1,7 L11,1 L22,7 L11,13 Z" fill="#fff" stroke="#000" stroke-width="1.3"/></marker></defs>
+<rect width="1240" height="1080" fill="#fff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#1f3b57">Modelo de dominio · SIGEV (versión de análisis)</text>
+<rect x="20" y="60" width="240" height="91" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="60" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="140.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">Permiso</text>
+<text x="28" y="110" font-size="12">nombre</text>
+<text x="28" y="127" font-size="12">módulo</text>
+<text x="28" y="144" font-size="12">acción</text>
+<rect x="330" y="60" width="240" height="74" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="330" y="60" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="450.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">Rol</text>
+<text x="338" y="110" font-size="12">nombre</text>
+<text x="338" y="127" font-size="12">descripción</text>
+<rect x="640" y="60" width="240" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="640" y="60" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="760.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">CuentaUsuario</text>
+<text x="648" y="110" font-size="12">correoAcceso</text>
+<text x="648" y="127" font-size="12">estado</text>
+<text x="648" y="144" font-size="12">intentosFallidos</text>
+<text x="648" y="161" font-size="12">fechaCreación</text>
+<rect x="950" y="60" width="240" height="125" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="950" y="60" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="1070.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">Persona</text>
+<text x="958" y="110" font-size="12">nombreCompleto</text>
+<text x="958" y="127" font-size="12">tipoDocumento</text>
+<text x="958" y="144" font-size="12">númeroDocumento</text>
+<text x="958" y="161" font-size="12">teléfono</text>
+<text x="958" y="178" font-size="12">correoContacto</text>
+<rect x="495" y="230" width="220" height="107" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="495" y="230" width="220" height="46" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="605.0" y="250" font-size="11" text-anchor="middle" fill="#000" font-style="italic">«clase de asociación»</text>
+<text x="605.0" y="266" font-size="14" font-weight="bold" text-anchor="middle">Asignación</text>
+<text x="503" y="296" font-size="12">fechaAsignación</text>
+<text x="503" y="313" font-size="12">asignadoPor</text>
+<text x="503" y="330" font-size="12">vigente</text>
+<rect x="20" y="400" width="240" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="400" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="140.0" y="420" font-size="14" font-weight="bold" text-anchor="middle">Recinto</text>
+<text x="28" y="450" font-size="12">nombre</text>
+<text x="28" y="467" font-size="12">dirección</text>
+<text x="28" y="484" font-size="12">ciudad</text>
+<text x="28" y="501" font-size="12">capacidadFísica</text>
+<rect x="330" y="400" width="240" height="125" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="330" y="400" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="450.0" y="420" font-size="14" font-weight="bold" text-anchor="middle">Evento</text>
+<text x="338" y="450" font-size="12">título</text>
+<text x="338" y="467" font-size="12">fechaInicio</text>
+<text x="338" y="484" font-size="12">fechaFin</text>
+<text x="338" y="501" font-size="12">aforoMáximo</text>
+<text x="338" y="518" font-size="12">estado</text>
+<rect x="640" y="400" width="240" height="91" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="640" y="400" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="760.0" y="420" font-size="14" font-weight="bold" text-anchor="middle">TipoEntrada</text>
+<text x="648" y="450" font-size="12">nombre</text>
+<text x="648" y="467" font-size="12">cupo</text>
+<text x="648" y="484" font-size="12">precio</text>
+<rect x="950" y="400" width="240" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="950" y="400" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="1070.0" y="420" font-size="14" font-weight="bold" text-anchor="middle">LoteCarga</text>
+<text x="958" y="450" font-size="12">nombreArchivo</text>
+<text x="958" y="467" font-size="12">fechaCarga</text>
+<text x="958" y="484" font-size="12">filasLeídas</text>
+<text x="958" y="501" font-size="12">filasRechazadas</text>
+<rect x="20" y="660" width="240" height="91" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="660" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="140.0" y="680" font-size="14" font-weight="bold" text-anchor="middle">Puerta</text>
+<text x="28" y="710" font-size="12">nombre</text>
+<text x="28" y="727" font-size="12">ubicación</text>
+<text x="28" y="744" font-size="12">habilitada</text>
+<rect x="330" y="660" width="240" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="330" y="660" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="450.0" y="680" font-size="14" font-weight="bold" text-anchor="middle">RegistroIngreso</text>
+<text x="338" y="710" font-size="12">fechaHora</text>
+<text x="338" y="727" font-size="12">sentido (entrada/salida)</text>
+<text x="338" y="744" font-size="12">resultado</text>
+<text x="338" y="761" font-size="12">motivo</text>
+<rect x="640" y="660" width="240" height="91" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="640" y="660" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="760.0" y="680" font-size="14" font-weight="bold" text-anchor="middle">Entrada</text>
+<text x="648" y="710" font-size="12">código</text>
+<text x="648" y="727" font-size="12">fechaEmisión</text>
+<text x="648" y="744" font-size="12">estado</text>
+<rect x="950" y="660" width="240" height="91" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="950" y="660" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="1070.0" y="680" font-size="14" font-weight="bold" text-anchor="middle">LíneaCarga</text>
+<text x="958" y="710" font-size="12">númeroFila</text>
+<text x="958" y="727" font-size="12">resultado</text>
+<text x="958" y="744" font-size="12">mensajeError</text>
+<rect x="330" y="900" width="240" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="330" y="900" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="450.0" y="920" font-size="14" font-weight="bold" text-anchor="middle">EventoAuditoría</text>
+<text x="338" y="950" font-size="12">fechaHora</text>
+<text x="338" y="967" font-size="12">acción</text>
+<text x="338" y="984" font-size="12">resultado</text>
+<text x="338" y="1001" font-size="12">huellaIntegridad</text>
+<rect x="640" y="900" width="240" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="640" y="900" width="240" height="30" fill="#e8f0fe" stroke="#000" stroke-width="1.4"/>
+<text x="760.0" y="920" font-size="14" font-weight="bold" text-anchor="middle">Notificación</text>
+<text x="648" y="950" font-size="12">canal (correo/SMS)</text>
+<text x="648" y="967" font-size="12">asunto</text>
+<text x="648" y="984" font-size="12">fechaEnvío</text>
+<text x="648" y="1001" font-size="12">estado</text>
+<polyline points="260.0,110.0 330.0,110.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="295.0" y="86" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">incluido en</text>
+<text x="276.0" y="125.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1..*</text>
+<text x="314.0" y="103.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<polyline points="570.0,110.0 640.0,110.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="605.0" y="86" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">desempeñada por</text>
+<text x="586.0" y="125.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1..*</text>
+<text x="624.0" y="103.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<polyline points="880.0,110.0 950.0,110.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="915.0" y="86" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">pertenece a</text>
+<text x="896.0" y="125.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..1</text>
+<text x="934.0" y="103.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<line x1="605" y1="110" x2="605" y2="230" stroke="#000" stroke-dasharray="6,4" stroke-width="1.3"/>
+<polyline points="800.0,168.0 800.0,375.0 520.0,375.0 520.0,400.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="700" y="367" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">organiza</text>
+<text x="789.0" y="188.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="531.0" y="388.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<polyline points="990.0,400.0 990.0,388.0 545.0,388.0 545.0,400.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="1010" y="382" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">carga asistentes de</text>
+<text x="1001.0" y="388.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<text x="556.0" y="388.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<polyline points="260.0,440.0 330.0,440.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="295.0" y="416" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">alberga</text>
+<text x="276.0" y="455.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="314.0" y="433.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<polyline points="570.0,440.0 640.0,440.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="605.0" y="416" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">ofrece</text>
+<text x="586.0" y="455.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="624.0" y="433.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1..*</text>
+<polyline points="130.0,508.0 130.0,660.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="138" y="584.0" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">tiene</text>
+<text x="119.0" y="528.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="141.0" y="648.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1..*</text>
+<polyline points="760.0,491.0 760.0,660.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="768" y="575.5" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">clasifica</text>
+<text x="749.0" y="511.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="771.0" y="648.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<polyline points="1070.0,508.0 1070.0,660.0" fill="none" stroke="#000" stroke-width="1.4" marker-start="url(#dia)"/>
+<text x="1059.0" y="528.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="1081.0" y="648.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1..*</text>
+<polyline points="260.0,700.0 330.0,700.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="295.0" y="676" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">registra</text>
+<text x="276.0" y="715.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="314.0" y="693.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<polyline points="570.0,700.0 640.0,700.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="586.0" y="715.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<text x="624.0" y="693.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="605" y="676" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic">corresponde a</text>
+<polyline points="450.0,768.0 450.0,900.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="458" y="834.0" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">queda en</text>
+<text x="439.0" y="788.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="461.0" y="888.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<polyline points="760.0,751.0 760.0,900.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="768" y="825.5" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">origina</text>
+<text x="749.0" y="771.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="771.0" y="888.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<polyline points="950.0,170.0 920.0,170.0 920.0,695.0 880.0,695.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="915" y="620" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">es titular de</text>
+<text x="934.0" y="163.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">1</text>
+<text x="896.0" y="710.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<polyline points="1190.0,700.0 1215.0,700.0 1215.0,100.0 1190.0,100.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="1200" y="520" font-size="12" text-anchor="middle" fill="#7a2e00" font-style="italic" stroke="#fff" stroke-width="4" paint-order="stroke">origina</text>
+<text x="1206.0" y="715.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..*</text>
+<text x="1206.0" y="115.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">0..1</text>
+<path d="M950,900 L1188,900 L1200,912 L1200,1010 L950,1010 Z" fill="#fffde7" stroke="#777"/>
+<text x="958" y="918" font-size="12" text-anchor="start" fill="#000">Modelo conceptual: solo</text>
+<text x="958" y="933" font-size="12" text-anchor="start" fill="#000">atributos del negocio;</text>
+<text x="958" y="948" font-size="12" text-anchor="start" fill="#000">sin métodos ni claves.</text>
+<text x="958" y="963" font-size="12" text-anchor="start" fill="#000">Asignación = clase de</text>
+<text x="958" y="978" font-size="12" text-anchor="start" fill="#000">asociación de la N:M</text>
+<text x="958" y="993" font-size="12" text-anchor="start" fill="#000">CuentaUsuario–Rol.</text>
+<text x="20" y="1068" font-size="11.5" fill="#555">15 clases conceptuales · clase de asociación Asignación · composición LoteCarga ◆ LíneaCarga</text>
+</svg>
