@@ -22,7 +22,7 @@
 |---|---|---|---|
 | 1 | Diagrama de casos de uso | El diagrama del SRS no tenía «include» ni «extend»; el mío tiene 5 «include» y 4 «extend», cada uno justificado (C4) | https://github.com/FelipeCastro-jpg/ADSO-3413974/commit/8561cc2 |
 | 2 | Diagrama de casos de uso | Quité «Sistema / Motor de aforo» como actor (el sistema no es actor de sí mismo) y agregué «Servicio de mensajería» como actor secundario externo (C4) | https://github.com/FelipeCastro-jpg/ADSO-3413974/commit/8561cc2 |
-| 3 | Diagrama de casos de uso | Separé las funciones que el SRS juntaba (por ejemplo, autenticación y roles) y agregué casos que el SRS tenía como requisito pero no como caso: CU-A04 Bloquear cuenta y CU-A09 Validar estructura del archivo (C3, C4) | (pegar enlace) |
+| 3 | Diagrama de casos de uso | Separé las funciones que el SRS juntaba (por ejemplo, autenticación y roles) y agregué casos que el SRS tenía como requisito pero no como caso: CU-A04 Bloquear cuenta y CU-A09 Validar estructura del archivo (C3, C4) | https://github.com/FelipeCastro-jpg/ADSO-3413974/commit/8561cc2 |
 | 4 | Diagrama de casos de uso | Pasé de imagen pegada en Word a `.drawio` editable + `.png` (artefacto f) | https://github.com/FelipeCastro-jpg/ADSO-3413974/commit/8561cc2 |
 
 ## 4. Qué construí nuevo
