@@ -1,0 +1,326 @@
+### Evidencia de ejecución · B5 · 2026-11-26 20:54 -0500
+### Motor: PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+### psql -v ON_ERROR_STOP=1 -d sigev_db -f B5-script-sigev.sql
+
+DROP SCHEMA IF EXISTS sigev CASCADE;
+psql:B5-script-sigev.sql:3: NOTICE:  schema "sigev" does not exist, skipping
+DROP SCHEMA
+CREATE SCHEMA sigev;
+CREATE SCHEMA
+SET search_path TO sigev;
+SET
+CREATE TABLE personas (
+  id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  tipo_doc           CHAR(2) NOT NULL CONSTRAINT personas_tipo_doc_ck CHECK (tipo_doc IN ('CC','CE','TI','PA')),
+  numero_doc         VARCHAR(20) NOT NULL,
+  nombre_completo    VARCHAR(150) NOT NULL,
+  correo_contacto    VARCHAR(150) NOT NULL CONSTRAINT personas_correo_ck CHECK (position('@' in correo_contacto) > 1),
+  creado_en          TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT personas_doc_uq UNIQUE (tipo_doc, numero_doc)
+);
+CREATE TABLE
+CREATE TABLE telefonos_persona (
+  persona_id         UUID NOT NULL,
+  numero             VARCHAR(15) NOT NULL CONSTRAINT telefonos_numero_ck CHECK (numero ~ '^[0-9]{7,15}$'),
+  CONSTRAINT telefonos_persona_pk PRIMARY KEY (persona_id, numero),
+  CONSTRAINT telefonos_persona_fk FOREIGN KEY (persona_id) REFERENCES personas (id) ON DELETE CASCADE
+);
+CREATE TABLE
+CREATE TABLE cuentas (
+  id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  persona_id         UUID NOT NULL CONSTRAINT cuentas_persona_uq UNIQUE,
+  correo_acceso      VARCHAR(150) NOT NULL CONSTRAINT cuentas_correo_uq UNIQUE,
+  hash_clave         VARCHAR(100) NOT NULL,
+  intentos_fallidos  SMALLINT NOT NULL DEFAULT 0 CONSTRAINT cuentas_intentos_ck CHECK (intentos_fallidos BETWEEN 0 AND 5),
+  estado             VARCHAR(10) NOT NULL DEFAULT 'activa' CONSTRAINT cuentas_estado_ck CHECK (estado IN ('activa','bloqueada','cerrada')),
+  CONSTRAINT cuentas_persona_fk FOREIGN KEY (persona_id) REFERENCES personas (id) ON DELETE RESTRICT
+);
+CREATE TABLE
+CREATE TABLE roles (
+  codigo             VARCHAR(15) PRIMARY KEY CONSTRAINT roles_codigo_ck CHECK (codigo IN ('superadmin','organizador','validador','asistente')),
+  nombre             VARCHAR(40) NOT NULL,
+  permisos           TEXT[] NOT NULL DEFAULT '{}'
+);
+CREATE TABLE
+CREATE TABLE asignaciones (
+  cuenta_id          UUID NOT NULL,
+  rol_codigo         VARCHAR(15) NOT NULL,
+  fecha_asignacion   TIMESTAMPTZ NOT NULL DEFAULT now(),
+  asignado_por       UUID,
+  vigente            BOOLEAN NOT NULL DEFAULT true,
+  CONSTRAINT asignaciones_pk PRIMARY KEY (cuenta_id, rol_codigo),
+  CONSTRAINT asignaciones_cuenta_fk FOREIGN KEY (cuenta_id) REFERENCES cuentas (id) ON DELETE CASCADE,
+  CONSTRAINT asignaciones_rol_fk FOREIGN KEY (rol_codigo) REFERENCES roles (codigo) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT asignaciones_por_fk FOREIGN KEY (asignado_por) REFERENCES cuentas (id) ON DELETE SET NULL
+);
+CREATE TABLE
+CREATE TABLE consentimientos (
+  id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  persona_id         UUID NOT NULL,
+  version_politica   VARCHAR(10) NOT NULL,
+  otorgado_en        TIMESTAMPTZ NOT NULL DEFAULT now(),
+  revocado_en        TIMESTAMPTZ,
+  CONSTRAINT consentimientos_persona_fk FOREIGN KEY (persona_id) REFERENCES personas (id) ON DELETE RESTRICT,
+  CONSTRAINT consentimientos_fechas_ck CHECK (revocado_en IS NULL OR revocado_en >= otorgado_en)
+);
+CREATE TABLE
+CREATE TABLE recintos (
+  id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  nombre             VARCHAR(100) NOT NULL CONSTRAINT recintos_nombre_uq UNIQUE,
+  direccion          VARCHAR(150) NOT NULL,
+  capacidad_fisica   INTEGER NOT NULL CONSTRAINT recintos_capacidad_ck CHECK (capacidad_fisica > 0)
+);
+CREATE TABLE
+CREATE TABLE puertas (
+  recinto_id         UUID NOT NULL,
+  nro_puerta         SMALLINT NOT NULL CONSTRAINT puertas_nro_ck CHECK (nro_puerta > 0),
+  nombre             VARCHAR(40) NOT NULL,
+  habilitada         BOOLEAN NOT NULL DEFAULT true,
+  CONSTRAINT puertas_pk PRIMARY KEY (recinto_id, nro_puerta),
+  CONSTRAINT puertas_recinto_fk FOREIGN KEY (recinto_id) REFERENCES recintos (id) ON DELETE CASCADE
+);
+CREATE TABLE
+CREATE TABLE eventos (
+  id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  recinto_id         UUID NOT NULL,
+  organizador_id     UUID NOT NULL,
+  titulo             VARCHAR(150) NOT NULL,
+  inicia_en          TIMESTAMPTZ NOT NULL,
+  termina_en         TIMESTAMPTZ NOT NULL,
+  aforo_maximo       INTEGER NOT NULL CONSTRAINT eventos_aforo_ck CHECK (aforo_maximo > 0),
+  estado             VARCHAR(12) NOT NULL DEFAULT 'programado' CONSTRAINT eventos_estado_ck CHECK (estado IN ('programado','en_curso','cerrado','cancelado')),
+  CONSTRAINT eventos_recinto_fk FOREIGN KEY (recinto_id) REFERENCES recintos (id) ON DELETE RESTRICT,
+  CONSTRAINT eventos_organizador_fk FOREIGN KEY (organizador_id) REFERENCES cuentas (id) ON DELETE RESTRICT,
+  CONSTRAINT eventos_fechas_ck CHECK (termina_en > inicia_en)
+);
+CREATE TABLE
+CREATE TABLE tipos_entrada (
+  id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  evento_id          UUID NOT NULL,
+  nombre             VARCHAR(40) NOT NULL,
+  cupo               INTEGER NOT NULL CONSTRAINT tipos_cupo_ck CHECK (cupo > 0),
+  precio             NUMERIC(10,2) NOT NULL CONSTRAINT tipos_precio_ck CHECK (precio >= 0),
+  CONSTRAINT tipos_entrada_evento_fk FOREIGN KEY (evento_id) REFERENCES eventos (id) ON DELETE CASCADE,
+  CONSTRAINT tipos_entrada_nombre_uq UNIQUE (evento_id, nombre)
+);
+CREATE TABLE
+CREATE TABLE lotes_carga (
+  id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  evento_id          UUID NOT NULL,
+  cargado_por        UUID NOT NULL,
+  nombre_archivo     VARCHAR(120) NOT NULL,
+  filas_leidas       INTEGER NOT NULL,
+  filas_rechazadas   INTEGER NOT NULL DEFAULT 0,
+  cargado_en         TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT lotes_evento_fk FOREIGN KEY (evento_id) REFERENCES eventos (id) ON DELETE CASCADE,
+  CONSTRAINT lotes_cuenta_fk FOREIGN KEY (cargado_por) REFERENCES cuentas (id) ON DELETE RESTRICT,
+  CONSTRAINT lotes_filas_ck CHECK (filas_rechazadas >= 0 AND filas_leidas >= filas_rechazadas)
+);
+CREATE TABLE
+CREATE TABLE entradas (
+  id                 UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  codigo             VARCHAR(32) NOT NULL CONSTRAINT entradas_codigo_uq UNIQUE,
+  tipo_entrada_id    UUID NOT NULL,
+  titular_id         UUID NOT NULL,
+  lote_id            UUID,
+  estado             VARCHAR(10) NOT NULL DEFAULT 'vigente' CONSTRAINT entradas_estado_ck CHECK (estado IN ('vigente','usada','anulada')),
+  emitida_en         TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT entradas_tipo_fk FOREIGN KEY (tipo_entrada_id) REFERENCES tipos_entrada (id) ON DELETE RESTRICT,
+  CONSTRAINT entradas_titular_fk FOREIGN KEY (titular_id) REFERENCES personas (id) ON DELETE RESTRICT,
+  CONSTRAINT entradas_lote_fk FOREIGN KEY (lote_id) REFERENCES lotes_carga (id) ON DELETE SET NULL,
+  CONSTRAINT entradas_titular_tipo_uq UNIQUE (titular_id, tipo_entrada_id)
+);
+CREATE TABLE
+CREATE TABLE registros_ingreso (
+  id                 BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  entrada_id         UUID NOT NULL,
+  recinto_id         UUID NOT NULL,
+  nro_puerta         SMALLINT NOT NULL,
+  validador_id       UUID NOT NULL,
+  sentido            CHAR(1) NOT NULL CONSTRAINT registros_sentido_ck CHECK (sentido IN ('E','S')),
+  resultado          VARCHAR(9) NOT NULL CONSTRAINT registros_resultado_ck CHECK (resultado IN ('aceptado','rechazado')),
+  motivo             VARCHAR(60),
+  ocurrido_en        TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT registros_entrada_fk FOREIGN KEY (entrada_id) REFERENCES entradas (id) ON DELETE RESTRICT,
+  CONSTRAINT registros_puerta_fk FOREIGN KEY (recinto_id, nro_puerta) REFERENCES puertas (recinto_id, nro_puerta) ON DELETE RESTRICT,
+  CONSTRAINT registros_validador_fk FOREIGN KEY (validador_id) REFERENCES cuentas (id) ON DELETE RESTRICT,
+  CONSTRAINT registros_motivo_ck CHECK (resultado = 'aceptado' OR motivo IS NOT NULL)
+);
+CREATE TABLE
+CREATE TABLE bitacora (
+  id                 BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  cuenta_id          UUID,
+  comando            VARCHAR(40) NOT NULL,
+  detalle            JSONB NOT NULL,
+  huella             CHAR(64) NOT NULL CONSTRAINT bitacora_huella_uq UNIQUE,
+  ocurrido_en        TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT bitacora_cuenta_fk FOREIGN KEY (cuenta_id) REFERENCES cuentas (id) ON DELETE SET NULL
+);
+CREATE TABLE
+CREATE INDEX registros_entrada_ix ON registros_ingreso (entrada_id);
+CREATE INDEX
+CREATE INDEX registros_fecha_ix ON registros_ingreso (ocurrido_en);
+CREATE INDEX
+CREATE INDEX entradas_titular_ix ON entradas (titular_id);
+CREATE INDEX
+CREATE FUNCTION bitacora_solo_insercion() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'bitacora: operación % no permitida', TG_OP; END $$;
+CREATE FUNCTION
+CREATE TRIGGER bitacora_sin_cambios BEFORE UPDATE OR DELETE ON bitacora FOR EACH ROW EXECUTE FUNCTION bitacora_solo_insercion();
+CREATE TRIGGER
+DO $$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname='sigev_api') THEN CREATE ROLE sigev_api NOLOGIN; END IF;
+IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname='sigev_analitica') THEN CREATE ROLE sigev_analitica NOLOGIN; END IF;
+IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname='sigev_soporte') THEN CREATE ROLE sigev_soporte NOLOGIN; END IF; END $$;
+DO
+GRANT USAGE ON SCHEMA sigev TO sigev_api, sigev_analitica, sigev_soporte;
+GRANT
+GRANT SELECT, INSERT, UPDATE ON personas, telefonos_persona, cuentas, asignaciones, consentimientos, recintos, puertas, eventos, tipos_entrada, lotes_carga, entradas TO sigev_api;
+GRANT
+GRANT DELETE ON telefonos_persona TO sigev_api;
+GRANT
+GRANT SELECT ON roles TO sigev_api;
+GRANT
+GRANT SELECT, INSERT ON registros_ingreso, bitacora TO sigev_api;
+GRANT
+GRANT SELECT ON eventos, tipos_entrada, recintos, puertas, registros_ingreso TO sigev_analitica;
+GRANT
+GRANT SELECT (id, tipo_entrada_id, estado, emitida_en) ON entradas TO sigev_analitica;
+GRANT
+GRANT SELECT ON bitacora, asignaciones, roles TO sigev_soporte;
+GRANT
+ALTER TABLE entradas ENABLE ROW LEVEL SECURITY;
+ALTER TABLE
+CREATE POLICY entradas_titular_pol ON entradas FOR SELECT TO sigev_api USING (titular_id = current_setting('app.persona_id', true)::uuid OR current_setting('app.rol', true) IN ('organizador','validador','superadmin'));
+CREATE POLICY
+CREATE POLICY entradas_escritura_pol ON entradas FOR INSERT TO sigev_api WITH CHECK (true);
+CREATE POLICY
+CREATE POLICY entradas_estado_pol ON entradas FOR UPDATE TO sigev_api USING (current_setting('app.rol', true) IN ('validador','organizador','superadmin'));
+CREATE POLICY
+ALTER TABLE personas ENABLE ROW LEVEL SECURITY;
+ALTER TABLE
+CREATE POLICY personas_propia_pol ON personas FOR ALL TO sigev_api USING (id = current_setting('app.persona_id', true)::uuid OR current_setting('app.rol', true) IN ('organizador','superadmin'));
+CREATE POLICY
+### Código de salida: 0 (0 = sin errores)
+
+### Tablas y columnas:
+    table_name     | columnas 
+-------------------+----------
+ asignaciones      |        5
+ bitacora          |        6
+ consentimientos   |        5
+ cuentas           |        6
+ entradas          |        7
+ eventos           |        8
+ lotes_carga       |        7
+ personas          |        6
+ puertas           |        4
+ recintos          |        4
+ registros_ingreso |        9
+ roles             |        3
+ telefonos_persona |        2
+ tipos_entrada     |        5
+(14 rows)
+
+### Restricciones:
+    tipo     | count 
+-------------+-------
+ CHECK       |    19
+ FOREIGN KEY |    19
+ PRIMARY KEY |    14
+ UNIQUE      |     8
+(4 rows)
+
+### Acción al borrar por FK:
+          conname           | on_delete 
+----------------------------+-----------
+ asignaciones_cuenta_fk     | CASCADE
+ asignaciones_por_fk        | SET NULL
+ asignaciones_rol_fk        | RESTRICT
+ bitacora_cuenta_fk         | SET NULL
+ consentimientos_persona_fk | RESTRICT
+ cuentas_persona_fk         | RESTRICT
+ entradas_lote_fk           | SET NULL
+ entradas_tipo_fk           | RESTRICT
+ entradas_titular_fk        | RESTRICT
+ eventos_organizador_fk     | RESTRICT
+ eventos_recinto_fk         | RESTRICT
+ lotes_cuenta_fk            | RESTRICT
+ lotes_evento_fk            | CASCADE
+ puertas_recinto_fk         | CASCADE
+ registros_entrada_fk       | RESTRICT
+ registros_puerta_fk        | RESTRICT
+ registros_validador_fk     | RESTRICT
+ telefonos_persona_fk       | CASCADE
+ tipos_entrada_evento_fk    | CASCADE
+(19 rows)
+
+### Políticas RLS:
+ tablename |       policyname       |  cmd   
+-----------+------------------------+--------
+ entradas  | entradas_escritura_pol | INSERT
+ entradas  | entradas_estado_pol    | UPDATE
+ entradas  | entradas_titular_pol   | SELECT
+ personas  | personas_propia_pol    | ALL
+(4 rows)
+
+
+### Pruebas (los ERROR son esperados):
+SET
+INSERT 0 4
+INSERT 0 3
+INSERT 0 2
+INSERT 0 2
+INSERT 0 1
+INSERT 0 2
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+ personas | entradas | registros 
+----------+----------+-----------
+        3 |        1 |         1
+(1 row)
+
+--- Pruebas negativas (cada una DEBE fallar) ---
+psql:B5-pruebas-sigev.sql:22: ERROR:  new row for relation "registros_ingreso" violates check constraint "registros_motivo_ck"
+DETAIL:  Failing row contains (2, e1111111-1111-1111-1111-111111111111, b1111111-1111-1111-1111-111111111111, 1, a3333333-3333-3333-3333-333333333333, E, rechazado, null, 2026-11-26 20:54:40.750325-05).
+psql:B5-pruebas-sigev.sql:24: ERROR:  insert or update on table "registros_ingreso" violates foreign key constraint "registros_puerta_fk"
+DETAIL:  Key (recinto_id, nro_puerta)=(b1111111-1111-1111-1111-111111111111, 9) is not present in table "puertas".
+psql:B5-pruebas-sigev.sql:26: ERROR:  new row for relation "cuentas" violates check constraint "cuentas_intentos_ck"
+DETAIL:  Failing row contains (a1111111-1111-1111-1111-111111111111, 11111111-1111-1111-1111-111111111111, org@demo.test, $argon2id$v=19$m=65536,t=3,p=4$c2FsdGVqZW1wbG8$hashdemo, 6, activa).
+psql:B5-pruebas-sigev.sql:28: ERROR:  duplicate key value violates unique constraint "entradas_titular_tipo_uq"
+DETAIL:  Key (titular_id, tipo_entrada_id)=(22222222-2222-2222-2222-222222222222, d1111111-1111-1111-1111-111111111111) already exists.
+psql:B5-pruebas-sigev.sql:30: ERROR:  new row for relation "lotes_carga" violates check constraint "lotes_filas_ck"
+DETAIL:  Failing row contains (129d05ca-75e0-4a38-8c30-95e5ae16a994, c1111111-1111-1111-1111-111111111111, a1111111-1111-1111-1111-111111111111, x.csv, 10, 20, 2026-11-26 20:54:40.752184-05).
+psql:B5-pruebas-sigev.sql:32: ERROR:  update or delete on table "personas" violates foreign key constraint "entradas_titular_fk" on table "entradas"
+DETAIL:  Key (id)=(22222222-2222-2222-2222-222222222222) is still referenced from table "entradas".
+psql:B5-pruebas-sigev.sql:34: ERROR:  bitacora: operación UPDATE no permitida
+CONTEXT:  PL/pgSQL function bitacora_solo_insercion() line 1 at RAISE
+psql:B5-pruebas-sigev.sql:35: ERROR:  bitacora: operación DELETE no permitida
+CONTEXT:  PL/pgSQL function bitacora_solo_insercion() line 1 at RAISE
+--- Prueba positiva: CASCADE de puertas al borrar un recinto sin eventos ---
+INSERT 0 1
+INSERT 0 1
+DELETE 1
+ puertas_del_recinto_borrado 
+-----------------------------
+                           0
+(1 row)
+
+--- Prueba de RLS: como sigev_api con app.persona_id = asistente, solo ve su entrada ---
+SET
+SET
+SET
+   codigo   
+------------
+ SIG-000001
+(1 row)
+
+SET
+SET
+ entradas_visibles_para_otra_persona 
+-------------------------------------
+                                   0
+(1 row)
+
+RESET

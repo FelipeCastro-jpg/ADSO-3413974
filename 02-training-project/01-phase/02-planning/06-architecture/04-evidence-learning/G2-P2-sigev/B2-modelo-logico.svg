@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1470" height="1020" viewBox="0 0 1470 1020" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#000"/></marker>
+<marker id="tri" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 Z" fill="#fff" stroke="#000" stroke-width="1.4"/></marker>
+<marker id="opn" markerWidth="14" markerHeight="14" refX="12" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12" fill="none" stroke="#000" stroke-width="1.4"/></marker>
+<marker id="dia" markerWidth="24" markerHeight="14" refX="1" refY="7" orient="auto"><path d="M1,7 L11,1 L22,7 L11,13 Z" fill="#000" stroke="#000"/></marker>
+<marker id="diaO" markerWidth="24" markerHeight="14" refX="1" refY="7" orient="auto"><path d="M1,7 L11,1 L22,7 L11,13 Z" fill="#fff" stroke="#000" stroke-width="1.3"/></marker></defs>
+<rect width="1470" height="1020" fill="#fff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#1f3b57">B2 · Modelo lógico relacional · SIGEV · PostgreSQL 16 · esquema sigev (14 tablas)</text>
+<rect x="890" y="60" width="250" height="142" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="890" y="60" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="1015.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">personas</text>
+<text x="898" y="110" font-size="12">PK    id : UUID</text>
+<text x="898" y="127" font-size="12">      tipo_doc : CHAR(2)</text>
+<text x="898" y="144" font-size="12">      numero_doc : VARCHAR(20)</text>
+<text x="898" y="161" font-size="12">      nombre_completo : VARCHAR(150)</text>
+<text x="898" y="178" font-size="12">      correo_contacto : VARCHAR(150)</text>
+<text x="898" y="195" font-size="12">      creado_en : TIMESTAMPTZ</text>
+<rect x="1180" y="60" width="250" height="74" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="1180" y="60" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="1305.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">telefonos_persona</text>
+<text x="1188" y="110" font-size="12">PK,FK persona_id : UUID</text>
+<text x="1188" y="127" font-size="12">PK    numero : VARCHAR(15)</text>
+<rect x="600" y="60" width="250" height="142" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="600" y="60" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="725.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">cuentas</text>
+<text x="608" y="110" font-size="12">PK    id : UUID</text>
+<text x="608" y="127" font-size="12">FK    persona_id : UUID</text>
+<text x="608" y="144" font-size="12">      correo_acceso : VARCHAR(150)</text>
+<text x="608" y="161" font-size="12">      hash_clave : VARCHAR(100)</text>
+<text x="608" y="178" font-size="12">      intentos_fallidos : SMALLINT</text>
+<text x="608" y="195" font-size="12">      estado : VARCHAR(10)</text>
+<rect x="20" y="60" width="250" height="91" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="60" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="145.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">roles</text>
+<text x="28" y="110" font-size="12">PK    codigo : VARCHAR(15)</text>
+<text x="28" y="127" font-size="12">      nombre : VARCHAR(40)</text>
+<text x="28" y="144" font-size="12">      permisos : TEXT[]</text>
+<rect x="310" y="60" width="250" height="125" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="310" y="60" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="435.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">asignaciones</text>
+<text x="318" y="110" font-size="12">PK,FK cuenta_id : UUID</text>
+<text x="318" y="127" font-size="12">PK,FK rol_codigo : VARCHAR(15)</text>
+<text x="318" y="144" font-size="12">      fecha_asignacion : TIMESTAMPTZ</text>
+<text x="318" y="161" font-size="12">FK    asignado_por : UUID ?</text>
+<text x="318" y="178" font-size="12">      vigente : BOOLEAN</text>
+<rect x="1180" y="340" width="250" height="125" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="1180" y="340" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="1305.0" y="360" font-size="14" font-weight="bold" text-anchor="middle">consentimientos</text>
+<text x="1188" y="390" font-size="12">PK    id : UUID</text>
+<text x="1188" y="407" font-size="12">FK    persona_id : UUID</text>
+<text x="1188" y="424" font-size="12">      version_politica : VARCHAR(10)</text>
+<text x="1188" y="441" font-size="12">      otorgado_en : TIMESTAMPTZ</text>
+<text x="1188" y="458" font-size="12">      revocado_en : TIMESTAMPTZ ?</text>
+<rect x="20" y="340" width="250" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="340" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="145.0" y="360" font-size="14" font-weight="bold" text-anchor="middle">recintos</text>
+<text x="28" y="390" font-size="12">PK    id : UUID</text>
+<text x="28" y="407" font-size="12">      nombre : VARCHAR(100)</text>
+<text x="28" y="424" font-size="12">      direccion : VARCHAR(150)</text>
+<text x="28" y="441" font-size="12">      capacidad_fisica : INTEGER</text>
+<rect x="20" y="660" width="250" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="660" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="145.0" y="680" font-size="14" font-weight="bold" text-anchor="middle">puertas</text>
+<text x="28" y="710" font-size="12">PK,FK recinto_id : UUID</text>
+<text x="28" y="727" font-size="12">PK    nro_puerta : SMALLINT</text>
+<text x="28" y="744" font-size="12">      nombre : VARCHAR(40)</text>
+<text x="28" y="761" font-size="12">      habilitada : BOOLEAN</text>
+<rect x="310" y="340" width="250" height="176" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="310" y="340" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="435.0" y="360" font-size="14" font-weight="bold" text-anchor="middle">eventos</text>
+<text x="318" y="390" font-size="12">PK    id : UUID</text>
+<text x="318" y="407" font-size="12">FK    recinto_id : UUID</text>
+<text x="318" y="424" font-size="12">FK    organizador_id : UUID</text>
+<text x="318" y="441" font-size="12">      titulo : VARCHAR(150)</text>
+<text x="318" y="458" font-size="12">      inicia_en : TIMESTAMPTZ</text>
+<text x="318" y="475" font-size="12">      termina_en : TIMESTAMPTZ</text>
+<text x="318" y="492" font-size="12">      aforo_maximo : INTEGER</text>
+<text x="318" y="509" font-size="12">      estado : VARCHAR(12)</text>
+<rect x="600" y="340" width="250" height="125" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="600" y="340" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="725.0" y="360" font-size="14" font-weight="bold" text-anchor="middle">tipos_entrada</text>
+<text x="608" y="390" font-size="12">PK    id : UUID</text>
+<text x="608" y="407" font-size="12">FK    evento_id : UUID</text>
+<text x="608" y="424" font-size="12">      nombre : VARCHAR(40)</text>
+<text x="608" y="441" font-size="12">      cupo : INTEGER</text>
+<text x="608" y="458" font-size="12">      precio : NUMERIC(10,2)</text>
+<rect x="890" y="340" width="250" height="159" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="890" y="340" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="1015.0" y="360" font-size="14" font-weight="bold" text-anchor="middle">lotes_carga</text>
+<text x="898" y="390" font-size="12">PK    id : UUID</text>
+<text x="898" y="407" font-size="12">FK    evento_id : UUID</text>
+<text x="898" y="424" font-size="12">FK    cargado_por : UUID</text>
+<text x="898" y="441" font-size="12">      nombre_archivo : VARCHAR(120)</text>
+<text x="898" y="458" font-size="12">      filas_leidas : INTEGER</text>
+<text x="898" y="475" font-size="12">      filas_rechazadas : INTEGER</text>
+<text x="898" y="492" font-size="12">      cargado_en : TIMESTAMPTZ</text>
+<rect x="600" y="660" width="250" height="159" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="600" y="660" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="725.0" y="680" font-size="14" font-weight="bold" text-anchor="middle">entradas</text>
+<text x="608" y="710" font-size="12">PK    id : UUID</text>
+<text x="608" y="727" font-size="12">      codigo : VARCHAR(32)</text>
+<text x="608" y="744" font-size="12">FK    tipo_entrada_id : UUID</text>
+<text x="608" y="761" font-size="12">FK    titular_id : UUID</text>
+<text x="608" y="778" font-size="12">FK    lote_id : UUID ?</text>
+<text x="608" y="795" font-size="12">      estado : VARCHAR(10)</text>
+<text x="608" y="812" font-size="12">      emitida_en : TIMESTAMPTZ</text>
+<rect x="310" y="660" width="250" height="193" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="310" y="660" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="435.0" y="680" font-size="14" font-weight="bold" text-anchor="middle">registros_ingreso</text>
+<text x="318" y="710" font-size="12">PK    id : BIGINT</text>
+<text x="318" y="727" font-size="12">FK    entrada_id : UUID</text>
+<text x="318" y="744" font-size="12">FK    recinto_id : UUID</text>
+<text x="318" y="761" font-size="12">FK    nro_puerta : SMALLINT</text>
+<text x="318" y="778" font-size="12">FK    validador_id : UUID</text>
+<text x="318" y="795" font-size="12">      sentido : CHAR(1)</text>
+<text x="318" y="812" font-size="12">      resultado : VARCHAR(9)</text>
+<text x="318" y="829" font-size="12">      motivo : VARCHAR(60) ?</text>
+<text x="318" y="846" font-size="12">      ocurrido_en : TIMESTAMPTZ</text>
+<rect x="890" y="660" width="250" height="142" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="890" y="660" width="250" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="1015.0" y="680" font-size="14" font-weight="bold" text-anchor="middle">bitacora</text>
+<text x="898" y="710" font-size="12">PK    id : BIGINT</text>
+<text x="898" y="727" font-size="12">FK    cuenta_id : UUID ?</text>
+<text x="898" y="744" font-size="12">      comando : VARCHAR(40)</text>
+<text x="898" y="761" font-size="12">      detalle : JSONB</text>
+<text x="898" y="778" font-size="12">      huella : CHAR(64)</text>
+<text x="898" y="795" font-size="12">      ocurrido_en : TIMESTAMPTZ</text>
+<polyline points="1140.0,116.3 1180.0,111.7" fill="none" stroke="#000" stroke-width="1.4"/>
+<line x1="1147.9" y1="123.5" x2="1146.0" y2="107.6" stroke="#000" stroke-width="1.4"/>
+<line x1="1160.8" y1="122.0" x2="1158.9" y2="106.1" stroke="#000" stroke-width="1.4"/>
+<line x1="1179.0" y1="102.7" x2="1166.1" y2="113.3" stroke="#000" stroke-width="1.4"/>
+<line x1="1181.0" y1="120.6" x2="1166.1" y2="113.3" stroke="#000" stroke-width="1.4"/>
+<circle cx="1155.2" cy="114.6" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="890.0,131.0 850.0,131.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="883.0" y1="123.0" x2="883.0" y2="139.0" stroke="#000" stroke-width="1.4"/>
+<line x1="870.0" y1="123.0" x2="870.0" y2="139.0" stroke="#000" stroke-width="1.4"/>
+<line x1="857.0" y1="139.0" x2="857.0" y2="123.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="875.0" cy="131.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="600.0,127.3 560.0,126.2" fill="none" stroke="#000" stroke-width="1.4"/>
+<line x1="593.2" y1="119.1" x2="592.8" y2="135.1" stroke="#000" stroke-width="1.4"/>
+<line x1="580.2" y1="118.8" x2="579.8" y2="134.7" stroke="#000" stroke-width="1.4"/>
+<line x1="559.7" y1="135.2" x2="574.0" y2="126.6" stroke="#000" stroke-width="1.4"/>
+<line x1="560.3" y1="117.2" x2="574.0" y2="126.6" stroke="#000" stroke-width="1.4"/>
+<circle cx="585.0" cy="126.9" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="270.0,112.8 310.0,115.2" fill="none" stroke="#000" stroke-width="1.4"/>
+<line x1="276.5" y1="121.2" x2="277.5" y2="105.3" stroke="#000" stroke-width="1.4"/>
+<line x1="289.5" y1="122.0" x2="290.4" y2="106.0" stroke="#000" stroke-width="1.4"/>
+<line x1="310.5" y1="106.2" x2="296.0" y2="114.4" stroke="#000" stroke-width="1.4"/>
+<line x1="309.5" y1="124.2" x2="296.0" y2="114.4" stroke="#000" stroke-width="1.4"/>
+<circle cx="285.0" cy="113.7" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="600.0,126.9 560.0,125.8" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="593.2" y1="118.7" x2="592.8" y2="134.7" stroke="#000" stroke-width="1.4"/>
+<circle cx="575.0" cy="126.2" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="559.8" y1="134.8" x2="574.0" y2="126.2" stroke="#000" stroke-width="1.4"/>
+<line x1="560.2" y1="116.8" x2="574.0" y2="126.2" stroke="#000" stroke-width="1.4"/>
+<circle cx="585.0" cy="126.5" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="1090.8,202.0 1238.2,340.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="1090.5" y1="212.6" x2="1101.4" y2="200.9" stroke="#000" stroke-width="1.4"/>
+<line x1="1100.0" y1="221.5" x2="1110.9" y2="209.8" stroke="#000" stroke-width="1.4"/>
+<line x1="1244.4" y1="333.4" x2="1228.0" y2="330.4" stroke="#000" stroke-width="1.4"/>
+<line x1="1232.1" y1="346.6" x2="1228.0" y2="330.4" stroke="#000" stroke-width="1.4"/>
+<circle cx="1220.0" cy="322.9" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="145.0,448.0 145.0,660.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<line x1="137.0" y1="455.0" x2="153.0" y2="455.0" stroke="#000" stroke-width="1.4"/>
+<line x1="137.0" y1="468.0" x2="153.0" y2="468.0" stroke="#000" stroke-width="1.4"/>
+<line x1="154.0" y1="660.0" x2="145.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<line x1="136.0" y1="660.0" x2="145.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="145.0" cy="635.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="270.0,408.7 310.0,413.3" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="276.0" y1="417.4" x2="277.9" y2="401.5" stroke="#000" stroke-width="1.4"/>
+<line x1="288.9" y1="418.9" x2="290.8" y2="403.0" stroke="#000" stroke-width="1.4"/>
+<line x1="311.0" y1="404.4" x2="296.1" y2="411.7" stroke="#000" stroke-width="1.4"/>
+<line x1="309.0" y1="422.3" x2="296.1" y2="411.7" stroke="#000" stroke-width="1.4"/>
+<circle cx="285.2" cy="410.4" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="655.7,202.0 520.9,340.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="645.1" y1="201.4" x2="656.5" y2="212.6" stroke="#000" stroke-width="1.4"/>
+<line x1="636.0" y1="210.7" x2="647.4" y2="221.9" stroke="#000" stroke-width="1.4"/>
+<line x1="527.4" y1="346.3" x2="530.7" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<line x1="514.5" y1="333.7" x2="530.7" y2="330.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="538.4" cy="322.1" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="560.0,417.0 600.0,413.5" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="567.7" y1="424.4" x2="566.3" y2="408.4" stroke="#000" stroke-width="1.4"/>
+<line x1="580.6" y1="423.2" x2="579.2" y2="407.3" stroke="#000" stroke-width="1.4"/>
+<line x1="599.2" y1="404.5" x2="586.1" y2="414.7" stroke="#000" stroke-width="1.4"/>
+<line x1="600.8" y1="422.5" x2="586.1" y2="414.7" stroke="#000" stroke-width="1.4"/>
+<circle cx="575.1" cy="415.7" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="510.0,340.0 510.0,322.0 950.0,322.0 950.0,340.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="518.0" y1="333.0" x2="502.0" y2="333.0" stroke="#000" stroke-width="1.4"/>
+<line x1="518.0" y1="320.0" x2="502.0" y2="320.0" stroke="#000" stroke-width="1.4"/>
+<line x1="959.0" y1="340.0" x2="950.0" y2="326.0" stroke="#000" stroke-width="1.4"/>
+<line x1="941.0" y1="340.0" x2="950.0" y2="326.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="950.0" cy="315.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="780.0,202.0 780.0,310.0 920.0,310.0 920.0,340.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="772.0" y1="209.0" x2="788.0" y2="209.0" stroke="#000" stroke-width="1.4"/>
+<line x1="772.0" y1="222.0" x2="788.0" y2="222.0" stroke="#000" stroke-width="1.4"/>
+<line x1="929.0" y1="340.0" x2="920.0" y2="326.0" stroke="#000" stroke-width="1.4"/>
+<line x1="911.0" y1="340.0" x2="920.0" y2="326.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="920.0" cy="315.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="725.0,465.0 725.0,660.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="717.0" y1="472.0" x2="733.0" y2="472.0" stroke="#000" stroke-width="1.4"/>
+<line x1="717.0" y1="485.0" x2="733.0" y2="485.0" stroke="#000" stroke-width="1.4"/>
+<line x1="734.0" y1="660.0" x2="725.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<line x1="716.0" y1="660.0" x2="725.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="725.0" cy="635.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="1130.0,202.0 1130.0,300.0 1160.0,300.0 1160.0,645.0 820.0,645.0 820.0,660.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="1122.0" y1="209.0" x2="1138.0" y2="209.0" stroke="#000" stroke-width="1.4"/>
+<line x1="1122.0" y1="222.0" x2="1138.0" y2="222.0" stroke="#000" stroke-width="1.4"/>
+<line x1="829.0" y1="660.0" x2="820.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<line x1="811.0" y1="660.0" x2="820.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="820.0" cy="635.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="1010.0,499.0 1010.0,620.0 760.0,620.0 760.0,660.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="1002.0" y1="506.0" x2="1018.0" y2="506.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="1010.0" cy="524.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="769.0" y1="660.0" x2="760.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<line x1="751.0" y1="660.0" x2="760.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="760.0" cy="635.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="600.0,746.8 560.0,749.2" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="592.5" y1="739.3" x2="593.5" y2="755.2" stroke="#000" stroke-width="1.4"/>
+<line x1="579.6" y1="740.0" x2="580.5" y2="756.0" stroke="#000" stroke-width="1.4"/>
+<line x1="560.5" y1="758.2" x2="574.0" y2="748.4" stroke="#000" stroke-width="1.4"/>
+<line x1="559.5" y1="740.2" x2="574.0" y2="748.4" stroke="#000" stroke-width="1.4"/>
+<circle cx="585.0" cy="747.7" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="270.0,732.3 310.0,738.2" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="275.8" y1="741.2" x2="278.1" y2="725.4" stroke="#000" stroke-width="1.4"/>
+<line x1="288.6" y1="743.1" x2="290.9" y2="727.3" stroke="#000" stroke-width="1.4"/>
+<line x1="311.3" y1="729.3" x2="296.1" y2="736.2" stroke="#000" stroke-width="1.4"/>
+<line x1="308.7" y1="747.1" x2="296.1" y2="736.2" stroke="#000" stroke-width="1.4"/>
+<circle cx="285.3" cy="734.6" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="620.0,202.0 620.0,300.0 580.0,300.0 580.0,640.0 510.0,640.0 510.0,660.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="612.0" y1="209.0" x2="628.0" y2="209.0" stroke="#000" stroke-width="1.4"/>
+<line x1="612.0" y1="222.0" x2="628.0" y2="222.0" stroke="#000" stroke-width="1.4"/>
+<line x1="519.0" y1="660.0" x2="510.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<line x1="501.0" y1="660.0" x2="510.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="510.0" cy="635.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<polyline points="830.0,202.0 830.0,290.0 870.0,290.0 870.0,630.0 950.0,630.0 950.0,660.0" fill="none" stroke="#000" stroke-width="1.4" stroke-dasharray="7,5"/>
+<line x1="822.0" y1="209.0" x2="838.0" y2="209.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="830.0" cy="227.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="959.0" y1="660.0" x2="950.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<line x1="941.0" y1="660.0" x2="950.0" y2="646.0" stroke="#000" stroke-width="1.4"/>
+<circle cx="950.0" cy="635.0" r="5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<path d="M20,940 L1438,940 L1450,952 L1450,986 L20,986 Z" fill="#fffde7" stroke="#777"/>
+<text x="28" y="958" font-size="12" text-anchor="start" fill="#000">PK = llave primaria · FK = llave foránea · ? = admite nulos · Pata de gallo: | uno, o cero, pata = muchos · línea continua = relación identificadora (la FK es parte de la PK) · discontinua = no identificadora.</text>
+<text x="28" y="973" font-size="12" text-anchor="start" fill="#000">Llaves UUID (gen_random_uuid) salvo tablas débiles/intermedias y tablas de alto volumen (BIGINT identidad). Nombres y tipos idénticos al diccionario y al script.</text>
+<text x="20" y="1008" font-size="11.5" fill="#555">14 tablas · 19 llaves foráneas · N:M resuelta: asignaciones · atributo multivaluado: telefonos_persona · débil: puertas</text>
+</svg>
