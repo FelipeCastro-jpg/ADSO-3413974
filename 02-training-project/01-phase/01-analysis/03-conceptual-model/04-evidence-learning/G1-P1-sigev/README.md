@@ -1,11 +1,11 @@
 # G1-P1 · Plan de análisis y casos de uso · SIGEV
 
-> **Antes de subir:** cambia `TU_USUARIO_GITHUB` por tu usuario de GitHub (aparece 2 veces).
+
 
 ## 1. Datos de la entrega
 
 - **Producto:** P1 · plan de análisis y casos de uso
-- **Usuario de GitHub del autor:** TU_USUARIO_GITHUB
+- **Usuario de GitHub del autor:** FelipeCastro-jpg:
 - **Caso de estudio:** SIGEV (EventFlow Manager): gestión de eventos, entradas con QR, control de ingreso y aforo
 - **Trabajo en equipo del año:** sí. Equipo SIGEV / EventFlow (2 aprendices). Compartimos el **SRS** como insumo; la metodología, el plan, el diagrama y la matriz de esta carpeta son individuales y distintos de los de mi compañera.
 
@@ -20,7 +20,7 @@
 
 | # | Artefacto | Qué cambié y por qué | Enlace al commit |
 |---|---|---|---|
-| 1 | Diagrama de casos de uso | El diagrama del SRS no tenía «include» ni «extend»; el mío tiene 5 «include» y 4 «extend», cada uno justificado (C4) | (pegar enlace) |
+| 1 | Diagrama de casos de uso | El diagrama del SRS no tenía «include» ni «extend»; el mío tiene 5 «include» y 4 «extend», cada uno justificado (C4) | https://github.com/FelipeCastro-jpg/ADSO-3413974/commit/8561cc2 |
 | 2 | Diagrama de casos de uso | Quité «Sistema / Motor de aforo» como actor (el sistema no es actor de sí mismo) y agregué «Servicio de mensajería» como actor secundario externo (C4) | (pegar enlace) |
 | 3 | Diagrama de casos de uso | Separé las funciones que el SRS juntaba (por ejemplo, autenticación y roles) y agregué casos que el SRS tenía como requisito pero no como caso: CU-A04 Bloquear cuenta y CU-A09 Validar estructura del archivo (C3, C4) | (pegar enlace) |
 | 4 | Diagrama de casos de uso | Pasé de imagen pegada en Word a `.drawio` editable + `.png` (artefacto f) | (pegar enlace) |
@@ -47,16 +47,16 @@
 - [x] Declaro que lo que tomé de mi equipo (el SRS) está identificado en la sección 2.
 - [x] Entiendo que el sábado 28 de noviembre de 2026 me harán 3 preguntas orales y que, si respondo bien menos de 2, el producto queda con tope de 50.
 
-Firma: TU_USUARIO_GITHUB · 26/11/2026
+Firma: FelipeCastro-jpg · 26/11/2026
 
 ## 7. Uso de inteligencia artificial
 
 | Herramienta | Para qué la usé | Qué verifiqué o corregí yo |
 |---|---|---|
-| Claude (Anthropic) | Para generar el `.drawio` del diagrama y redactar borradores de la caracterización, la comparación de metodologías, el plan y la matriz a partir del SRS | (escribe aquí lo que revisaste tú; por ejemplo: recalculé los puntajes de la comparación, revisé que cada RF tenga caso de uso, comprobé el sentido de cada flecha) |
+| Claude (Anthropic) | Para generar el `.drawio` del diagrama y redactar borradores de la caracterización, la comparación de metodologías, el plan y la matriz a partir del SRS | (escribe aquí lo que revisaste tú; por ejemplo: Claude generó el contenido a partir del SRS del equipo. Yo revisé que cada RF tuviera caso de uso, que las flechas include/extend tuvieran sentido y que puedo explicar por qué elegí XP. |
 
 ## 8. Autocontrol antes del push
 
-- [ ] Hice commits propios en al menos 2 días distintos.
+- [x]  Hice commits propios en al menos 2 días distintos.
 - [x] No subí material del instructor ni archivos de otras personas.
-- [ ] Hice push y comprobé en GitHub que la carpeta está publicada.
+- [x]  Hice push y comprobé en GitHub que la carpeta está publicada.
