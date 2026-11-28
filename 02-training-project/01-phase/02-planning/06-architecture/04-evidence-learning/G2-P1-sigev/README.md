@@ -51,10 +51,8 @@
 
 ## 5. Historial de commits
 
-| Día | Qué avancé |
-|---|---|
-| (día 1) |  Jueves 26/11/2026 | Add files via upload (primeros diagramas de diseño y modelo de datos) |
-| (día 2) | Viernes 27/11/2026 | Add files via upload (carpetas completas G2-P1 y G2-P2) |
+| Jueves 26/11/2026 | Add files via upload (primeros diagramas de diseño y modelo de datos) |
+| Viernes 27/11/2026 | Add files via upload (carpetas completas G2-P1 y G2-P2) |
 
 ## 6. Uso de IA
 
