@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net"><diagram id="d" name="Diagrama de actividades · CU-A15 Supervisar aforo en vivo"><mxGraphModel grid="1" gridSize="10" page="1" pageWidth="1000" pageHeight="1000"><root>
+<mxCell id="0"/>
+<mxCell id="1" parent="0"/>
+<mxCell id="title" value="Diagrama de actividades · CU-A15 Supervisar aforo en vivo" style="text;fontSize=18;fontStyle=1;fontColor=#1f3b57;align=left;" vertex="1" parent="1"><mxGeometry x="20" y="10" width="900" height="30" as="geometry"/></mxCell>
+<mxCell id="L1" value="Organizador" style="swimlane;startSize=36;fillColor=#dbe7f3;swimlaneFillColor=#fafcff;strokeColor=#1f3b57;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="20" y="50" width="330" height="910" as="geometry"/></mxCell>
+<mxCell id="L2" value="Sistema SIGEV" style="swimlane;startSize=36;fillColor=#dbe7f3;swimlaneFillColor=#fafcff;strokeColor=#1f3b57;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="350" y="50" width="630" height="910" as="geometry"/></mxCell>
+<mxCell id="s" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="172" y="102" width="26" height="26" as="geometry"/></mxCell>
+<mxCell id="a1" value="Abrir panel de aforo
+del evento" style="rounded=1;arcSize=30;whiteSpace=wrap;html=0;fontSize=12;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="75.0" y="153.0" width="220" height="54" as="geometry"/></mxCell>
+<mxCell id="a2" value="Mostrar ocupación total
+y por puerta" style="rounded=1;arcSize=30;whiteSpace=wrap;html=0;fontSize=12;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="445.0" y="153.0" width="230" height="54" as="geometry"/></mxCell>
+<mxCell id="a3" value="Recibir nuevo ingreso
+o salida registrada" style="rounded=1;arcSize=30;whiteSpace=wrap;html=0;fontSize=12;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="445.0" y="243.0" width="230" height="54" as="geometry"/></mxCell>
+<mxCell id="a4" value="Recalcular porcentaje
+de ocupación" style="rounded=1;arcSize=30;whiteSpace=wrap;html=0;fontSize=12;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="445.0" y="333.0" width="230" height="54" as="geometry"/></mxCell>
+<mxCell id="d1" value="" style="rhombus;fillColor=#fff8e1;" vertex="1" parent="1"><mxGeometry x="534" y="424" width="52" height="52" as="geometry"/></mxCell>
+<mxCell id="a5" value="Bloquear nuevos ingresos
+y alertar (100 %)" style="rounded=1;arcSize=30;whiteSpace=wrap;html=0;fontSize=12;fillColor=#fdecea;" vertex="1" parent="1"><mxGeometry x="730.0" y="423.0" width="220" height="54" as="geometry"/></mxCell>
+<mxCell id="a6" value="Emitir alerta
+preventiva (80 %)" style="rounded=1;arcSize=30;whiteSpace=wrap;html=0;fontSize=12;fillColor=#fff3e0;" vertex="1" parent="1"><mxGeometry x="730.0" y="533.0" width="220" height="54" as="geometry"/></mxCell>
+<mxCell id="m2" value="" style="rhombus;fillColor=#fff8e1;" vertex="1" parent="1"><mxGeometry x="159" y="534" width="52" height="52" as="geometry"/></mxCell>
+<mxCell id="a7" value="Revisar la alerta y
+decidir la acción" style="rounded=1;arcSize=30;whiteSpace=wrap;html=0;fontSize=12;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="75.0" y="613.0" width="220" height="54" as="geometry"/></mxCell>
+<mxCell id="m" value="" style="rhombus;fillColor=#fff8e1;" vertex="1" parent="1"><mxGeometry x="534" y="674" width="52" height="52" as="geometry"/></mxCell>
+<mxCell id="a8" value="Actualizar el panel
+en pantalla" style="rounded=1;arcSize=30;whiteSpace=wrap;html=0;fontSize=12;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="445.0" y="753.0" width="230" height="54" as="geometry"/></mxCell>
+<mxCell id="d2" value="" style="rhombus;fillColor=#fff8e1;" vertex="1" parent="1"><mxGeometry x="534" y="834" width="52" height="52" as="geometry"/></mxCell>
+<mxCell id="e" value="" style="ellipse;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="170" y="845" width="30" height="30" as="geometry"/></mxCell>
+<mxCell id="e1" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="s" target="a1"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e2" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e3" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e4" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e5" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="a4" target="d1"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e6" value="[ocupación = 100 %]" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="d1" target="a5"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e7" value="[80–99 %]" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="d1" target="a6"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="620" y="458"/><mxPoint x="620" y="560"/></Array></mxGeometry></mxCell>
+<mxCell id="e8" value="[ocupación &lt; 80 %]" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="d1" target="m"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e9" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="a5" target="m2"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="840" y="505"/><mxPoint x="185" y="505"/></Array></mxGeometry></mxCell>
+<mxCell id="e10" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="a6" target="m2"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="840" y="600"/><mxPoint x="260" y="600"/><mxPoint x="260" y="560"/></Array></mxGeometry></mxCell>
+<mxCell id="e11" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="m2" target="a7"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e12" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="a7" target="m"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="185" y="700"/></Array></mxGeometry></mxCell>
+<mxCell id="e13" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="m" target="a8"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e14" value="" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="a8" target="d2"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="e15" value="[el organizador sigue en el panel]" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="d2" target="a3"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="960" y="860"/><mxPoint x="960" y="270"/></Array></mxGeometry></mxCell>
+<mxCell id="e16" value="[cierra el panel]" style="endArrow=block;endFill=1;html=1;rounded=0;fontColor=#7A2E00;fontStyle=2;" edge="1" parent="1" source="d2" target="e"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="note17" value="Sin concurrencia: el panel procesa
+los ingresos uno a uno (no hay
+bifurcación ni unión)." style="shape=note;size=12;whiteSpace=wrap;html=0;fillColor=#fffde7;strokeColor=#777777;align=left;spacingLeft=6;fontSize=11;" vertex="1" parent="1"><mxGeometry x="30" y="730" width="300" height="62" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>

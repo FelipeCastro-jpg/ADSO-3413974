@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1000" viewBox="0 0 1300 1000" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#000"/></marker>
+<marker id="tri" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 Z" fill="#fff" stroke="#000" stroke-width="1.4"/></marker>
+<marker id="opn" markerWidth="14" markerHeight="14" refX="12" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12" fill="none" stroke="#000" stroke-width="1.4"/></marker>
+<marker id="dia" markerWidth="24" markerHeight="14" refX="1" refY="7" orient="auto"><path d="M1,7 L11,1 L22,7 L11,13 Z" fill="#000" stroke="#000"/></marker>
+<marker id="diaO" markerWidth="24" markerHeight="14" refX="1" refY="7" orient="auto"><path d="M1,7 L11,1 L22,7 L11,13 Z" fill="#fff" stroke="#000" stroke-width="1.3"/></marker></defs>
+<rect width="1300" height="1000" fill="#fff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#1f3b57">Modelo entidad-relación · SIGEV · notación Chen (rectángulo = entidad, rombo = relación)</text>
+<rect x="20" y="60" width="230" height="91" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="60" width="230" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="135.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">ROL</text>
+<text x="28" y="110" font-size="12">PK cod_rol</text>
+<text x="28" y="127" font-size="12">nombre</text>
+<text x="28" y="144" font-size="12">descripción</text>
+<rect x="360" y="60" width="230" height="124" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="360" y="60" width="230" height="46" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="475.0" y="80" font-size="11" text-anchor="middle" fill="#000" font-style="italic">«entidad asociativa»</text>
+<text x="475.0" y="96" font-size="14" font-weight="bold" text-anchor="middle">ASIGNACIÓN</text>
+<text x="368" y="126" font-size="12">PK (id_cuenta, cod_rol)</text>
+<text x="368" y="143" font-size="12">fecha_asignación</text>
+<text x="368" y="160" font-size="12">asignado_por</text>
+<text x="368" y="177" font-size="12">vigente</text>
+<rect x="700" y="60" width="230" height="125" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="700" y="60" width="230" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="815.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">CUENTA</text>
+<text x="708" y="110" font-size="12">PK id_cuenta</text>
+<text x="708" y="127" font-size="12">correo_acceso</text>
+<text x="708" y="144" font-size="12">hash_clave</text>
+<text x="708" y="161" font-size="12">estado</text>
+<text x="708" y="178" font-size="12">intentos_fallidos</text>
+<rect x="1040" y="60" width="230" height="142" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="1040" y="60" width="230" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="1155.0" y="80" font-size="14" font-weight="bold" text-anchor="middle">PERSONA</text>
+<text x="1048" y="110" font-size="12">PK id_persona</text>
+<text x="1048" y="127" font-size="12">tipo_doc</text>
+<text x="1048" y="144" font-size="12">número_doc</text>
+<text x="1048" y="161" font-size="12">nombre_completo</text>
+<text x="1048" y="178" font-size="12">teléfono</text>
+<text x="1048" y="195" font-size="12">correo_contacto</text>
+<rect x="20" y="370" width="230" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="370" width="230" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="135.0" y="390" font-size="14" font-weight="bold" text-anchor="middle">RECINTO</text>
+<text x="28" y="420" font-size="12">PK id_recinto</text>
+<text x="28" y="437" font-size="12">nombre</text>
+<text x="28" y="454" font-size="12">dirección</text>
+<text x="28" y="471" font-size="12">capacidad_física</text>
+<rect x="360" y="370" width="230" height="142" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="360" y="370" width="230" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="475.0" y="390" font-size="14" font-weight="bold" text-anchor="middle">EVENTO</text>
+<text x="368" y="420" font-size="12">PK id_evento</text>
+<text x="368" y="437" font-size="12">título</text>
+<text x="368" y="454" font-size="12">fecha_inicio</text>
+<text x="368" y="471" font-size="12">fecha_fin</text>
+<text x="368" y="488" font-size="12">aforo_máximo</text>
+<text x="368" y="505" font-size="12">estado</text>
+<rect x="700" y="370" width="230" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="700" y="370" width="230" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="815.0" y="390" font-size="14" font-weight="bold" text-anchor="middle">TIPO_ENTRADA</text>
+<text x="708" y="420" font-size="12">PK id_tipo</text>
+<text x="708" y="437" font-size="12">nombre</text>
+<text x="708" y="454" font-size="12">cupo</text>
+<text x="708" y="471" font-size="12">precio</text>
+<rect x="15" y="635" width="240" height="117" fill="none" stroke="#000" stroke-width="1.2"/>
+<rect x="20" y="640" width="230" height="107" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="20" y="640" width="230" height="46" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="135.0" y="660" font-size="11" text-anchor="middle" fill="#000" font-style="italic">«entidad débil»</text>
+<text x="135.0" y="676" font-size="14" font-weight="bold" text-anchor="middle">PUERTA</text>
+<text x="28" y="706" font-size="12">PK parcial: nro_puerta</text>
+<text x="28" y="723" font-size="12">nombre</text>
+<text x="28" y="740" font-size="12">ubicación</text>
+<rect x="360" y="640" width="230" height="125" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="360" y="640" width="230" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="475.0" y="660" font-size="14" font-weight="bold" text-anchor="middle">REGISTRO_INGRESO</text>
+<text x="368" y="690" font-size="12">PK id_registro</text>
+<text x="368" y="707" font-size="12">fecha_hora</text>
+<text x="368" y="724" font-size="12">sentido</text>
+<text x="368" y="741" font-size="12">resultado</text>
+<text x="368" y="758" font-size="12">motivo</text>
+<rect x="700" y="640" width="230" height="108" fill="#fff" stroke="#000" stroke-width="1.4"/><rect x="700" y="640" width="230" height="30" fill="#e6f4ea" stroke="#000" stroke-width="1.4"/>
+<text x="815.0" y="660" font-size="14" font-weight="bold" text-anchor="middle">ENTRADA</text>
+<text x="708" y="690" font-size="12">PK id_entrada</text>
+<text x="708" y="707" font-size="12">código</text>
+<text x="708" y="724" font-size="12">fecha_emisión</text>
+<text x="708" y="741" font-size="12">estado</text>
+<polygon points="305,97.0 347.0,120 305,143.0 263.0,120" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="305" y="124.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">otorgado en</text>
+<polygon points="645,97.0 687.0,120 645,143.0 603.0,120" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="645" y="124.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">recibe</text>
+<polygon points="985,97.0 1027.0,120 985,143.0 943.0,120" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="985" y="124.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">posee</text>
+<polygon points="305,407.0 347.0,430 305,453.0 263.0,430" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="305" y="434.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">alberga</text>
+<polygon points="645,407.0 687.0,430 645,453.0 603.0,430" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="645" y="434.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">ofrece</text>
+<polygon points="305,677.0 347.0,700 305,723.0 263.0,700" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="305" y="704.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">registra</text>
+<polygon points="645,677.0 687.0,700 645,723.0 603.0,700" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="645" y="704.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">se usa en</text>
+<polygon points="135,546.0 185.0,575 135,604.0 85.0,575" fill="none" stroke="#000"/>
+<polygon points="135,552.0 177.0,575 135,598.0 93.0,575" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="135" y="579.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">tiene</text>
+<polygon points="815,552.0 857.0,575 815,598.0 773.0,575" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="815" y="579.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">clasifica</text>
+<polygon points="640,277.0 682.0,300 640,323.0 598.0,300" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="640" y="304.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">organiza</text>
+<polygon points="1155,437.0 1197.0,460 1155,483.0 1113.0,460" fill="#fff8e1" stroke="#000" stroke-width="1.4"/>
+<text x="1155" y="464.0" font-size="11.5" text-anchor="middle" fill="#000" font-style="italic">es titular de</text>
+<polyline points="250.0,120.0 263.0,120.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="266.0" y="135.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(0,N)</text>
+<text x="247.0" y="113.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="360.0,120.0 347.0,120.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="344.0" y="113.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="363.0" y="135.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="700.0,120.0 687.0,120.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="684.0" y="113.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,N)</text>
+<text x="703.0" y="135.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="590.0,120.0 603.0,120.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="606.0" y="135.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="587.0" y="113.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="930.0,120.0 943.0,120.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="946.0" y="135.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="927.0" y="113.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="1040.0,120.0 1027.0,120.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="1024.0" y="113.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(0,1)</text>
+<text x="1043.0" y="135.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="250.0,430.0 263.0,430.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="266.0" y="445.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(0,N)</text>
+<text x="247.0" y="423.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="360.0,430.0 347.0,430.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="344.0" y="423.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="363.0" y="445.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="590.0,430.0 603.0,430.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="606.0" y="445.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,N)</text>
+<text x="587.0" y="423.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="700.0,430.0 687.0,430.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="684.0" y="423.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="703.0" y="445.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="250.0,700.0 263.0,700.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="266.0" y="715.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(0,N)</text>
+<text x="247.0" y="693.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="360.0,700.0 347.0,700.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="344.0" y="693.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="363.0" y="715.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="700.0,700.0 687.0,700.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="684.0" y="693.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(0,N)</text>
+<text x="703.0" y="715.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="590.0,700.0 603.0,700.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="606.0" y="715.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="587.0" y="693.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="135.0,478.0 135.0,552.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="124.0" y="498.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,N)</text>
+<text x="146.0" y="540.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="135.0,640.0 135.0,598.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="146.0" y="628.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="124.0" y="618.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="815.0,478.0 815.0,552.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="804.0" y="498.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(0,N)</text>
+<text x="826.0" y="540.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="815.0,640.0 815.0,598.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="826.0" y="628.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="804.0" y="618.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="720.0,185.0 655.0,288.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="702.2" y="196.7" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(0,N)</text>
+<text x="672.8" y="284.3" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="560.0,370.0 626.0,312.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="579.3" y="371.7" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="606.7" y="318.3" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="1155.0,202.0 1155.0,437.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="1144.0" y="222.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(0,N)</text>
+<text x="1166.0" y="425.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<polyline points="930.0,670.0 1155.0,670.0 1155.0,483.0" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="946.0" y="685.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c">(1,1)</text>
+<text x="1144.0" y="503.0" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0b4f9c"></text>
+<path d="M20,830 L1258,830 L1270,842 L1270,892 L20,892 Z" fill="#fffde7" stroke="#777"/>
+<text x="28" y="848" font-size="12" text-anchor="start" fill="#000">Notación Chen adaptada (atributos dentro de la entidad). (mín, máx) junto a cada entidad = en cuántas instancias de la relación participa;</text>
+<text x="28" y="863" font-size="12" text-anchor="start" fill="#000">mín 1 = participación total, mín 0 = parcial. Doble borde = entidad débil PUERTA (RECINTO + nro_puerta) con relación identificadora «tiene».</text>
+<text x="28" y="878" font-size="12" text-anchor="start" fill="#000">La N:M CUENTA–ROL se resuelve con la entidad asociativa ASIGNACIÓN, que tiene atributos propios (fecha_asignación, asignado_por, vigente).</text>
+<text x="20" y="988" font-size="11.5" fill="#555">10 entidades · 11 relaciones · 1 entidad débil · 1 entidad asociativa</text>
+</svg>
