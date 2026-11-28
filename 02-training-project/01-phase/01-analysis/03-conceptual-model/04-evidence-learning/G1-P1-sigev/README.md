@@ -5,7 +5,7 @@
 ## 1. Datos de la entrega
 
 - **Producto:** P1 · plan de análisis y casos de uso
-- **Usuario de GitHub del autor:** FelipeCastro-jpg:
+- **Usuario de GitHub del autor:** FelipeCastro-jpg
 - **Caso de estudio:** SIGEV (EventFlow Manager): gestión de eventos, entradas con QR, control de ingreso y aforo
 - **Trabajo en equipo del año:** sí. Equipo SIGEV / EventFlow (2 aprendices). Compartimos el **SRS** como insumo; la metodología, el plan, el diagrama y la matriz de esta carpeta son individuales y distintos de los de mi compañera.
 
@@ -21,9 +21,9 @@
 | # | Artefacto | Qué cambié y por qué | Enlace al commit |
 |---|---|---|---|
 | 1 | Diagrama de casos de uso | El diagrama del SRS no tenía «include» ni «extend»; el mío tiene 5 «include» y 4 «extend», cada uno justificado (C4) | https://github.com/FelipeCastro-jpg/ADSO-3413974/commit/8561cc2 |
-| 2 | Diagrama de casos de uso | Quité «Sistema / Motor de aforo» como actor (el sistema no es actor de sí mismo) y agregué «Servicio de mensajería» como actor secundario externo (C4) | (pegar enlace) |
+| 2 | Diagrama de casos de uso | Quité «Sistema / Motor de aforo» como actor (el sistema no es actor de sí mismo) y agregué «Servicio de mensajería» como actor secundario externo (C4) | https://github.com/FelipeCastro-jpg/ADSO-3413974/commit/8561cc2 |
 | 3 | Diagrama de casos de uso | Separé las funciones que el SRS juntaba (por ejemplo, autenticación y roles) y agregué casos que el SRS tenía como requisito pero no como caso: CU-A04 Bloquear cuenta y CU-A09 Validar estructura del archivo (C3, C4) | (pegar enlace) |
-| 4 | Diagrama de casos de uso | Pasé de imagen pegada en Word a `.drawio` editable + `.png` (artefacto f) | (pegar enlace) |
+| 4 | Diagrama de casos de uso | Pasé de imagen pegada en Word a `.drawio` editable + `.png` (artefacto f) | https://github.com/FelipeCastro-jpg/ADSO-3413974/commit/8561cc2 |
 
 ## 4. Qué construí nuevo
 
@@ -53,7 +53,7 @@ Firma: FelipeCastro-jpg · 26/11/2026
 
 | Herramienta | Para qué la usé | Qué verifiqué o corregí yo |
 |---|---|---|
-| Claude (Anthropic) | Para generar el `.drawio` del diagrama y redactar borradores de la caracterización, la comparación de metodologías, el plan y la matriz a partir del SRS | (escribe aquí lo que revisaste tú; por ejemplo: Claude generó el contenido a partir del SRS del equipo. Yo revisé que cada RF tuviera caso de uso, que las flechas include/extend tuvieran sentido y que puedo explicar por qué elegí XP. |
+| Claude (Anthropic) | Para generar el `.drawio` del diagrama y redactar borradores de la caracterización, la comparación de metodologías, el plan y la matriz a partir del SRS | Claude generó el contenido a partir del SRS del equipo. Yo revisé que cada RF tuviera caso de uso, que las flechas include/extend tuvieran sentido y que puedo explicar por qué elegí XP. |
 
 ## 8. Autocontrol antes del push
 
