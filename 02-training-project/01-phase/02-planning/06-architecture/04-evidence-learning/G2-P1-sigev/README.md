@@ -1,17 +1,15 @@
 # README · Guía 2 · Producto 1: artefactos de diseño
 
-> **Antes de subir:** cambia `TU_USUARIO_GITHUB` por tu usuario (aparece 3 veces) y completa la sección 6 con lo que revisaste tú.
-
 ## 1. Datos de la entrega
 
 | Campo | Valor |
 |---|---|
 | Producto | P1 (artefactos de diseño) |
-| Usuario de GitHub del autor | TU_USUARIO_GITHUB |
+| Usuario de GitHub del autor | FelipeCastro-jpg |
 | Ficha | 3413974 |
 | Caso | SIGEV (EventFlow Manager) |
 | SRS / análisis | `../../../../01-analysis/03-conceptual-model/04-evidence-learning/G1-P2-sigev/03-informe-analisis.md` |
-| Cuenta de los commits | TU_USUARIO_GITHUB |
+| Cuenta de los commits | FelipeCastro-jpg |
 
 ## 2. Origen del insumo y trabajo en equipo
 
@@ -55,14 +53,14 @@
 
 | Día | Qué avancé |
 |---|---|
-| (día 1) | (pega aquí el mensaje de tu primer commit) |
-| (día 2) | (pega aquí el mensaje de tu segundo commit) |
+| (día 1) |  Jueves 26/11/2026 | Add files via upload (primeros diagramas de diseño y modelo de datos) |
+| (día 2) | Viernes 27/11/2026 | Add files via upload (carpetas completas G2-P1 y G2-P2) |
 
 ## 6. Uso de IA
 
 | Herramienta | Para qué | Qué verifiqué o cambié |
 |---|---|---|
-| Claude (Anthropic) | Para generar los `.drawio` y borradores de las tablas a partir de las decisiones de diseño | (escribe aquí lo que revisaste tú) |
+| Claude (Anthropic) | Para generar los `.drawio` y borradores de las tablas a partir de las decisiones de diseño | (Claude generó los diagramas y los textos. Yo revisé dónde están los patrones Comando y Fábrica abstracta en el diagrama de clases, por qué la arquitectura es hexagonal y para qué sirve Redis en el aforo.) |
 
 ## 7. Enlaces
 
@@ -82,4 +80,4 @@
 
 Declaro que los artefactos de esta carpeta son de mi autoría, que lo reutilizado está en la sección 3 y que puedo explicar cada uno en la verificación oral.
 
-Usuario de GitHub: TU_USUARIO_GITHUB · Fecha: ________
+Usuario de GitHub: FelipeCastro-jpg · Fecha: 27/11/2026
