@@ -1,13 +1,11 @@
 # README · Guía 2 · Producto 2: modelo de datos y verificación
 
-> **Antes de subir:** cambia `TU_USUARIO_GITHUB` (aparece 2 veces) y completa las secciones 5 y 6.
-
 ## 1. Datos
 
 | Campo | Valor |
 |---|---|
 | Producto | P2 (modelo de datos y verificación) |
-| Usuario de GitHub | TU_USUARIO_GITHUB |
+| Usuario de GitHub | FelipeCastro-jpg |
 | Ficha | 3413974 |
 | Caso | SIGEV (EventFlow Manager), el mismo de P1 |
 | Análisis | `../../../../01-analysis/03-conceptual-model/04-evidence-learning/G1-P2-sigev/03-informe-analisis.md` |
@@ -40,16 +38,14 @@ El SRS es del equipo (2 aprendices). Mi MER de partida es individual (G1-P2). Lo
 
 ## 5. Historial de commits
 
-| Día | Mensaje |
-|---|---|
-| (día 1) | (completar) |
-| (día 2) | (completar) |
+| Jueves 26/11/2026 | Add files via upload (modelo conceptual, lógico y script SQL) |
+| Viernes 27/11/2026 | Add files via upload (carpeta completa con diccionario, normalización, políticas y lista de chequeo) |
 
 ## 6. Uso de IA
 
 | Herramienta | Para qué | Qué verifiqué o cambié |
 |---|---|---|
-| Claude (Anthropic) | Para generar el script, el diccionario y los diagramas a partir de una especificación, ejecutar el script en PostgreSQL y redactar borradores | (escribe aquí lo que revisaste tú) |
+| Claude (Anthropic) | Para generar el script, el diccionario y los diagramas a partir de una especificación, ejecutar el script en PostgreSQL y redactar borradores | (Claude generó el script, el diccionario y los diagramas y ejecutó el script en PostgreSQL. Yo revisé el log de ejecución, entendí cómo se llega a 3FN con el CSV de carga y para qué sirve la seguridad por filas (RLS).) |
 
 ## 7. Cómo reproducir
 
@@ -63,4 +59,4 @@ psql -d sigev_db -f B5-pruebas-sigev.sql   # los ERROR son esperados
 
 Declaro que los artefactos de esta carpeta son de mi autoría, que lo reutilizado está en la sección 3 y que puedo explicarlos en la verificación oral.
 
-Usuario de GitHub: TU_USUARIO_GITHUB · Fecha: ________
+Usuario de GitHub: FelipeCastro-jpg · Fecha: 27/11/2026
